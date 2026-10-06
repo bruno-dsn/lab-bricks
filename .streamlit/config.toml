@@ -1,0 +1,24 @@
+[client]
+showErrorDetails = "none"
+toolbarMode = "viewer"
+showErrorLinks = false
+
+[server]
+headless = true
+enableCORS = true
+enableXsrfProtection = true
+maxUploadSize = 2
+
+[browser]
+gatherUsageStats = false
+
+[logger]
+level = "warning"
+
+[theme]
+base = "dark"
+primaryColor = "#FF795D"
+backgroundColor = "#0D1B2A"
+secondaryBackgroundColor = "#14263A"
+textColor = "#F2EEE8"
+font = "sans serif"

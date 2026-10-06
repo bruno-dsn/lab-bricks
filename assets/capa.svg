@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 570" role="img" aria-labelledby="title desc">
+<title id="title">Databricks na prática</title>
+<desc id="desc">Trilha de dados em português, com SQL, lakehouse, Delta e machine learning. Um percurso visual de dados recebidos até uma decisão.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#102438"/><stop offset="1" stop-color="#0a1420"/></linearGradient></defs>
+<rect width="1440" height="570" rx="28" fill="url(#bg)"/>
+<g stroke="#274056" opacity=".45"><path d="M920 0V570M1060 0V570M1200 0V570M1340 0V570M880 90H1440M880 230H1440M880 370H1440M880 510H1440"/></g>
+<g font-family="Arial, sans-serif"><rect x="70" y="58" width="327" height="36" rx="18" fill="#22364a"/>
+<text x="92" y="82" font-size="15" font-weight="700" letter-spacing="2" fill="#8ee0d4">APRENDA COM UM PROJETO</text>
+<text x="70" y="194" font-size="76" font-weight="700" letter-spacing="-3" fill="#f2eee8">Databricks</text>
+<text x="70" y="278" font-size="76" font-weight="700" letter-spacing="-3" fill="#ff795d">na prática.</text>
+<text x="74" y="339" font-size="25" fill="#b0c1d1">Do primeiro dado à primeira decisão.</text>
+<text x="74" y="378" font-size="21" fill="#b0c1d1">Leia a regra. Mude o exemplo. Confira o resultado.</text>
+<text x="74" y="463" font-size="16" font-weight="700" letter-spacing="2" fill="#f2eee8">SQL  /  LAKEHOUSE  /  DELTA  /  ML</text>
+<text x="74" y="514" font-size="14" fill="#7e98af">BRUNO NUNES · TRILHA EM PORTUGUÊS · DADOS FICTÍCIOS</text>
+<g transform="translate(1000 84)"><rect width="338" height="107" rx="18" fill="#22364a" stroke="#48647a"/>
+<circle cx="36" cy="33" r="6" fill="#8ee0d4"/><text x="56" y="39" font-size="16" fill="#8ee0d4">01 · RECEBER</text>
+<text x="30" y="80" font-size="25" fill="#f2eee8">Pedidos e suas versões</text></g>
+<path d="M1169 201V233" stroke="#8ee0d4" stroke-width="3"/><path d="M1162 225L1169 233L1176 225" fill="none" stroke="#8ee0d4" stroke-width="3"/>
+<g transform="translate(941 244)"><rect width="338" height="107" rx="18" fill="#22364a" stroke="#ff795d"/>
+<circle cx="36" cy="33" r="6" fill="#ff795d"/><text x="56" y="39" font-size="16" fill="#ff795d">02 · CONFERIR</text>
+<text x="30" y="80" font-size="25" fill="#f2eee8">Qualidade e métricas</text></g>
+<path d="M1110 362V394" stroke="#8ee0d4" stroke-width="3"/><path d="M1103 386L1110 394L1117 386" fill="none" stroke="#8ee0d4" stroke-width="3"/>
+<g transform="translate(1000 405)"><rect width="338" height="107" rx="18" fill="#22364a" stroke="#48647a"/>
+<circle cx="36" cy="33" r="6" fill="#8ee0d4"/><text x="56" y="39" font-size="16" fill="#8ee0d4">03 · RESPONDER</text>
+<text x="30" y="80" font-size="25" fill="#f2eee8">Análise e previsão</text></g></g></svg>

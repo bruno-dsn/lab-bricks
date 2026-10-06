@@ -1,0 +1,4 @@
+# Validação opcional das transformações Spark; não é necessário para abrir o app.
+-r requirements.lock
+pyspark==4.0.1
+py4j==0.10.9.9
