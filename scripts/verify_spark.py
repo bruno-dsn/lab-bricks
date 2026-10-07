@@ -9,6 +9,7 @@ ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from lab.dados import COLUNAS, gerar_vendas
 from lab.pipeline import tratar
+from lab.bi import gerar_comercio, resumo, CONSULTAS
 
 
 def verificar():
@@ -19,8 +20,8 @@ def verificar():
                  and node.name == "normalizar"]
     if len(functions) != 1:
         raise RuntimeError("Funções de transformação não encontradas no notebook.")
-    with TemporaryDirectory(prefix="dbnp-spark-") as temporary:
-        spark = (SparkSession.builder.master("local[2]").appName("dbnp-verificacao")
+    with TemporaryDirectory(prefix="lab-bricks-spark-") as temporary:
+        spark = (SparkSession.builder.master("local[2]").appName("lab-bricks-verificacao")
                  .config("spark.ui.enabled", "false")
                  .config("spark.driver.host", "127.0.0.1")
                  .config("spark.sql.shuffle.partitions", "2")
@@ -61,7 +62,25 @@ def verificar():
                 assert snapshot(actual_rejected, COLUNAS + ["motivo"]) == snapshot(local.rejeitadas, COLUNAS + ["motivo"]), "Quarentena divergiu"
                 assert snapshot(actual_superseded, COLUNAS) == snapshot(local.substituidas, COLUNAS), "Versões divergiu"
                 assert len(rows) == len(actual_silver) + len(actual_rejected) + len(actual_superseded)
-            print(f"Spark {spark.version}: 3 cenários reconciliados com Pandas, incluindo nulos e versões. Delta e Unity Catalog não foram executados.")
+            # Exercita a função real do notebook JSON, sem copiar a implementação.
+            json_source = ast.parse((ROOT / 'notebooks/06_json_e_qualidade.py').read_text())
+            json_functions = [node for node in json_source.body if isinstance(node, ast.FunctionDef) and node.name == 'construir_json']
+            from pyspark.sql import types as T
+            json_namespace = {'spark': spark, 'F': F, 'T': T, 'pd': pd}
+            exec(compile(ast.Module(body=json_functions, type_ignores=[]), 'notebook_06', 'exec'), json_namespace)
+            raw, rejected_events, items, rejected_items = json_namespace['construir_json'](spark)
+            assert (raw.count(), rejected_events.count(), items.count(), rejected_items.count()) == (4, 2, 3, 0)
+            assert items.agg(F.sum('valor_centavos')).first()[0] == 17600
+            # Valida SQL/joins/janela do BI em Spark, sem substituir o teste Delta.
+            tables = gerar_comercio()
+            for name, frame in tables.items():
+                spark.createDataFrame(frame).createOrReplaceTempView(name)
+            counts_bi = spark.sql(CONSULTAS['Grão: linhas versus pedidos']).first().asDict()
+            expected = resumo(tables)
+            assert counts_bi == {'linhas': expected['linhas'], 'pedidos': expected['pedidos']}
+            window_rows = spark.sql(CONSULTAS['Receita acumulada com janela']).collect()
+            assert abs(float(window_rows[-1]['acumulada']) - expected['receita_centavos'] / 100) < 1e-6
+            print(f"Spark {spark.version}: 5 cenários validados: 3 de pipeline, JSON e BI com janela. Delta, Unity Catalog e serviços de conta não foram executados.")
         finally:
             spark.stop()
 

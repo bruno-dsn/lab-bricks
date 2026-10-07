@@ -1,14 +1,14 @@
 # Colocar o projeto no seu GitHub
 
-O repositório desta entrega é [bruno-dsn/databricks-na-pratica](https://github.com/bruno-dsn/databricks-na-pratica). Os passos abaixo também servem para criar uma cópia ou publicar uma evolução.
+O repositório desta entrega é [bruno-dsn/lab-bricks](https://github.com/bruno-dsn/lab-bricks). Os passos abaixo também servem para criar uma cópia ou publicar uma evolução.
 
-O pacote contém a pasta `databricks-na-pratica`. Extraia e coloque o **conteúdo dessa pasta** na raiz do repositório: o GitHub deve encontrar `README.md` na primeira página. O ZIP é um meio de transporte, não o único arquivo a publicar.
+O pacote contém a pasta `lab-bricks`. Extraia e coloque o **conteúdo dessa pasta** na raiz do repositório: o GitHub deve encontrar `README.md` na primeira página. O ZIP é um meio de transporte, não o único arquivo a publicar.
 
 ## Criar o repositório
 
-No GitHub, escolha **New repository**, informe `databricks-na-pratica`, descreva o projeto e escolha a visibilidade. Como os arquivos já vêm preparados, crie o repositório vazio, sem gerar outro README, licença ou gitignore.
+No GitHub, escolha **New repository**, informe `lab-bricks`, descreva o projeto e escolha a visibilidade. Como os arquivos já vêm preparados, crie o repositório vazio, sem gerar outro README, licença ou gitignore.
 
-Descrição sugerida: `Trilha prática em português para aprender SQL, Spark, Delta Lake e ML com notebooks Databricks e um laboratório interativo de vendas.`
+Descrição sugerida: `Laboratório em português para aprender Databricks com 33 aulas, 12 notebooks, três projetos e app de SQL, BI, engenharia, ML, IA e governança.`
 
 ## Enviar pelo terminal
 
@@ -18,9 +18,9 @@ Dentro da pasta extraída, revise os arquivos e execute:
 git init
 git add .
 git status
-git commit -m "Adiciona trilha inicial de Databricks"
+git commit -m "Adiciona laboratório Lab Bricks"
 git branch -M main
-git remote add origin https://github.com/SEU_USUARIO/databricks-na-pratica.git
+git remote add origin https://github.com/SEU_USUARIO/lab-bricks.git
 git push -u origin main
 ```
 
@@ -42,6 +42,6 @@ Você também pode usar **Add file → Upload files** na página do repositório
 
 ## Gerar outro ZIP limpo
 
-Execute `python scripts/package_project.py ../databricks-na-pratica-v1.0.zip`. O script confere o projeto e inclui seus fontes, dados, imagens e configuração. Ambientes virtuais, `.git`, caches, logs e outros ZIPs ficam fora. O arquivo gerado usa datas e permissões estáveis; o terminal informa a quantidade de arquivos e seu SHA-256.
+Execute `python scripts/package_project.py ../lab-bricks-v2.0.zip`. O script confere o projeto e inclui seus fontes, dados, imagens e configuração. Ambientes virtuais, `.git`, caches, logs e outros ZIPs ficam fora. O arquivo gerado usa datas e permissões estáveis; o terminal informa a quantidade de arquivos e seu SHA-256.
 
 Instruções oficiais: [criar repositório](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-new-repository) e [adicionar arquivos](https://docs.github.com/en/repositories/working-with-files/managing-files/adding-a-file-to-a-repository).

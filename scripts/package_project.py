@@ -9,9 +9,9 @@ from verify_project import ROOT, verify
 ROOT_FILES = {
     "README.md", "LICENSE", "CONTRIBUTING.md", "SECURITY.md", "app.py",
     ".gitignore", "pyproject.toml", "requirements.txt", "requirements-dev.txt",
-    "requirements.lock", "requirements-spark.txt",
+    "requirements.lock", "requirements-spark.txt", "databricks.yml",
 }
-FOLDERS = {".github", ".streamlit", "assets", "data", "docs", "notebooks", "scripts", "src", "tests"}
+FOLDERS = {".github", ".streamlit", "assets", "data", "docs", "notebooks", "scripts", "src", "tests", "content", "templates", "resources", "pipelines"}
 EXTENSIONS = {".py", ".md", ".txt", ".toml", ".yml", ".json", ".ipynb", ".csv", ".svg", ".png"}
 SKIP_PARTS = {".git", ".venv", "__pycache__", ".pytest_cache", ".ipynb_checkpoints", "build", "dist", "mlruns", "mlartifacts"}
 
@@ -44,7 +44,7 @@ def package(output):
     # Data e permissões estáveis permitem reproduzir o mesmo ZIP com os mesmos fontes.
     with zipfile.ZipFile(output, "w", compression=zipfile.ZIP_DEFLATED, compresslevel=9) as archive:
         for path in files:
-            name = f"{ROOT.name}/{path.relative_to(ROOT).as_posix()}"
+            name = f"lab-bricks/{path.relative_to(ROOT).as_posix()}"
             info = zipfile.ZipInfo(name, date_time=(2026, 1, 1, 0, 0, 0))
             info.compress_type = zipfile.ZIP_DEFLATED
             info.external_attr = 0o100644 << 16

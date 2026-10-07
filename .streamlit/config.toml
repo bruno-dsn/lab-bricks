@@ -16,9 +16,9 @@ gatherUsageStats = false
 level = "warning"
 
 [theme]
-base = "dark"
-primaryColor = "#FF795D"
-backgroundColor = "#0D1B2A"
-secondaryBackgroundColor = "#14263A"
-textColor = "#F2EEE8"
+base = "light"
+primaryColor = "#FF3621"
+backgroundColor = "#F9F7F4"
+secondaryBackgroundColor = "#EEEDE9"
+textColor = "#0B2026"
 font = "sans serif"

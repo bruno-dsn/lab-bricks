@@ -21,7 +21,7 @@ CATALOG = dbutils.widgets.get("catalogo").strip()
 if not re.fullmatch(r"[A-Za-z_][A-Za-z0-9_]{0,63}", CATALOG):
     raise ValueError("Escolha um catálogo com nome simples: letras, números e underscore.")
 identity = spark.sql("SELECT current_user() AS usuario").first()["usuario"]
-SCHEMA = "dbnp_" + hashlib.sha256(identity.encode()).hexdigest()[:12]
+SCHEMA = "lb_" + hashlib.sha256(identity.encode()).hexdigest()[:12]
 CATALOG_SQL = f"`{CATALOG}`"
 SCHEMA_SQL = f"`{SCHEMA}`"
 spark.sql(f"CREATE SCHEMA IF NOT EXISTS {CATALOG_SQL}.{SCHEMA_SQL}")

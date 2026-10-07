@@ -1,77 +1,25 @@
-# Gabaritos comentados
+# Soluções orientadas e formas de conferir
 
-## Receita, pedidos e unidades
+Estas orientações ajudam a revisar decisões; não são um gabarito de exame nem substituem a evidência de execução.
 
-```sql
-SELECT canal,
-       COUNT(*) AS pedidos,
-       SUM(valor_centavos) / 100.0 AS receita
-FROM silver_vendas
-WHERE status = 'concluida'
-GROUP BY canal;
+## Projeto 01
 
-SELECT produto, SUM(quantidade) AS unidades
-FROM silver_vendas
-WHERE status = 'concluida'
-GROUP BY produto;
-```
+Fixture padrão: 727 recebidos, 720 chaves válidas, seis rejeitados e uma versão substituída. Reconcilie linhas e receita em centavos. Reaplique um lote e compare conteúdo completo. Uma correção vigente inválida deve aparecer na quarentena, sem restaurar silenciosamente a versão antiga. O gate 07 se aplica ao snapshot do notebook 02; o MERGE 03 usa um destino independente com 721 chaves.
 
-Neste contrato, a chave identifica um pedido com um produto. A contagem representa pedidos e a quantidade representa unidades. Numa fonte com vários itens por pedido, seria preciso revisar a granularidade.
+Para uma fonte real, contagens fixas não seriam universais: defina tolerâncias e metadados de lote com significado de negócio. Nome de schema não é controle de acesso.
 
-## Taxa de cancelamento
+## Projeto 02
 
-```sql
-SELECT ROUND(
-  100.0 * SUM(CASE WHEN status = 'cancelada' THEN 1 ELSE 0 END)
-  / NULLIF(COUNT(*), 0), 2
-) AS cancelamento_percentual
-FROM silver_vendas;
-```
+180 pedidos, 16 cancelados e 164 concluídos. Após o JOIN com itens, conte pedidos com DISTINCT; unidades com SUM(quantidade). A montagem muitos-para-um deve recusar chave duplicada em dimensões. Use preço/custo da transação e reconcilie receita por categoria com total. O último acumulado diário deve corresponder ao total dos mesmos filtros. Margem bruta não é lucro líquido.
 
-O denominador inclui concluídos e cancelados. `NULLIF` evita divisão por zero numa tabela vazia; um resultado nulo precisa ser tratado como ausência de pedidos, sem inventar uma taxa observada.
+Os filtros do painel não alteram o editor SQL: replique-os no WHERE da query. No dashboard nativo, confira datasets e controles, além de permissões de publicação.
 
-## Canal desconhecido
+## Projeto 03
 
-No pipeline local, acrescente um motivo na lista `reasons` quando `row['canal']` não estiver em `{'Site', 'Aplicativo', 'Marketplace'}`. Na função `normalizar` do notebook 00, acrescente uma condição equivalente na lista `regras`.
+A previsão precisa de baseline e protocolo. O Ridge pode perder: isso não invalida uma avaliação honesta. A classificação padrão separa 480 entregas de treino e 120 de teste por datas. Duração real é vazamento e fica fora das features. Mudar limiar altera matriz/custo, sem alterar Brier/AUC das mesmas probabilidades. Para seleção final, use validação intermediária.
 
-O teste deve usar um pedido válido com só o canal alterado. Depois da transformação, a Silver deve estar vazia para essa entrada e a quarentena deve mencionar o canal. Faça também um teste para cada canal permitido para evitar rejeitar toda a fonte por engano.
+PSI é sinal de distribuição; novos rótulos seriam necessários para medir qualidade depois da mudança. A busca usa TF-IDF e retorna evidências. Recall de documentos não comprova resposta correta de um LLM: o app não executa geração. Um caso sem evidência deve levar a abstenção, não invenção.
 
-## Versão antiga
+## Como conferir seu domínio
 
-A condição `origem.atualizado_em > destino.atualizado_em` bloqueia uma versão mais antiga. A igualdade também não atualiza. Se sua origem permitir duas correções com o mesmo timestamp, será preciso definir uma política adicional de sequência ou versão; este exercício não inventa essa ordenação.
-
-## Versão recente inválida
-
-```python
-from lab.pipeline import tratar
-
-base = {
-    'venda_id': 'P1', 'data_venda': '2026-01-01',
-    'produto': 'Caderno', 'categoria': 'Papelaria', 'canal': 'Site',
-    'quantidade': '2', 'preco_unitario': '10.25',
-    'status': 'concluida', 'atualizado_em': '2026-01-01 10:00:00'
-}
-recente = {**base, 'preco_unitario': '-1.00',
-           'atualizado_em': '2026-01-02 10:00:00'}
-resultado = tratar([base, recente])
-assert resultado.silver.empty
-assert len(resultado.rejeitadas) == 1
-assert len(resultado.substituidas) == 1
-```
-
-Execute dentro de um ambiente em que `src/` esteja no `PYTHONPATH`, como os testes deste repositório. O caso já tem cobertura em `tests/test_pipeline.py`.
-
-## Janelas de teste
-
-```python
-from lab.dados import gerar_vendas
-from lab.pipeline import tratar
-from lab.ml import comparar
-
-gold = tratar(gerar_vendas()).gold
-for dias in [7, 14, 21]:
-    _, metricas = comparar(gold, dias_teste=dias)
-    print(dias, metricas)
-```
-
-Cada janela reserva outra parte do calendário e muda a quantidade de treino. A comparação precisa mencionar isso. O resultado não permite declarar que um modelo é sempre melhor nem escolher a janela só para obter o menor erro divulgado.
+Explique uma escolha, uma alternativa e uma limitação para cada entrega. Depois altere o fixture e demonstre que o contrato ainda vale ou que a falha é controlada. Uma screenshot verde sem contexto não comprova o resultado.

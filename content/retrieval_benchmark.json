@@ -1,0 +1,26 @@
+[
+  {
+    "query": "repetir lote sem duplicar registros manifesto idempotência",
+    "expected": "e03-incremental"
+  },
+  {
+    "query": "vazamento temporal features informações do futuro",
+    "expected": "m02-temporal"
+  },
+  {
+    "query": "join dimensão chave duplicada receita multiplicada",
+    "expected": "s02-joins"
+  },
+  {
+    "query": "TF-IDF similaridade lexical sinônimos",
+    "expected": "i02-busca"
+  },
+  {
+    "query": "Unity Catalog privilégios schema hash autorização",
+    "expected": "g01-acesso"
+  },
+  {
+    "query": "capacidade potencial horas poupadas custos revisão humana",
+    "expected": "i05-valor"
+  }
+]

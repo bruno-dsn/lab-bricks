@@ -1,18 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 850" role="img" aria-labelledby="t d">
-<title id="t">Arquitetura do projeto de vendas</title><desc id="d">727 registros chegam à Bronze. Escolha de versão e validação encaminham 720 pedidos à Silver, seis à quarentena e uma versão à tabela de substituídas. A Gold agrega somente concluídos.</desc>
-<defs><marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0 0L10 5L0 10Z" fill="#809bb2"/></marker></defs>
-<rect width="1440" height="850" rx="22" fill="#0d1b2a"/>
-<g font-family="Arial, sans-serif">
-<text x="56" y="62" font-size="18" fill="#8ee0d4" letter-spacing="2">O CAMINHO DE CADA REGISTRO</text>
-<text x="56" y="110" font-size="35" font-weight="700" fill="#f2eee8">Qualidade que você consegue inspecionar.</text>
-<g transform="translate(500 157)"><rect width="440" height="92" rx="15" fill="#23364a" stroke="#aa8c71"/><text x="24" y="36" font-size="21" font-weight="700" fill="#e9c5a0">BRONZE · 727</text><text x="24" y="69" font-size="20" fill="#f2eee8">Fonte preservada como chegou</text></g>
-<g stroke="#809bb2" stroke-width="3" marker-end="url(#arrow)" fill="none"><path d="M720 253V303"/></g>
-<g transform="translate(440 314)"><rect width="560" height="95" rx="15" fill="#23364a" stroke="#ff795d"/><text x="24" y="37" font-size="23" font-weight="700" fill="#ff795d">ESCOLHER VERSÃO E VALIDAR</text><text x="24" y="72" font-size="19" fill="#f2eee8">Chave → atualização → contrato do pedido</text></g>
-<g stroke="#809bb2" stroke-width="3" marker-end="url(#arrow)" fill="none"><path d="M500 417V447H250V484"/><path d="M720 417V484"/><path d="M940 417V447H1190V484"/></g>
-<g transform="translate(55 495)"><rect width="390" height="110" rx="15" fill="#23364a" stroke="#c5d1dc"/><text x="24" y="38" font-size="23" font-weight="700" fill="#c5d1dc">SILVER · 720</text><text x="24" y="77" font-size="19" fill="#f2eee8">Pedidos vigentes e válidos</text></g>
-<g transform="translate(525 495)"><rect width="390" height="110" rx="15" fill="#23364a" stroke="#ff795d"/><text x="24" y="38" font-size="23" font-weight="700" fill="#ff795d">QUARENTENA · 6</text><text x="24" y="77" font-size="19" fill="#f2eee8">Campos originais e motivo</text></g>
-<g transform="translate(995 495)"><rect width="390" height="110" rx="15" fill="#23364a" stroke="#839bb1"/><text x="24" y="38" font-size="23" font-weight="700" fill="#aac0d3">SUBSTITUÍDAS · 1</text><text x="24" y="77" font-size="19" fill="#f2eee8">Versão anterior do pedido</text></g>
-<path d="M250 613V663" fill="none" stroke="#809bb2" stroke-width="3" marker-end="url(#arrow)"/>
-<g transform="translate(55 677)"><rect width="390" height="110" rx="15" fill="#23364a" stroke="#e9c77b"/><text x="24" y="38" font-size="23" font-weight="700" fill="#e9c77b">GOLD · POR DIA</text><text x="24" y="72" font-size="19" fill="#f2eee8">Receita e pedidos concluídos</text><text x="24" y="97" font-size="16" fill="#aac0d3">Cancelados ficam fora da receita</text></g>
-<text x="525" y="707" font-size="22" fill="#f2eee8">727 = 720 + 6 + 1</text><text x="525" y="746" font-size="19" fill="#aac0d3">Uma entrada, um destino explicado.</text><text x="525" y="778" font-size="16" fill="#aac0d3">App: Pandas · Notebooks: Spark e Delta</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 840" role="img" aria-labelledby="t d">
+<title id="t">Lab Bricks: um destino explicado para cada registro</title><desc id="d">727 entradas: 720 pedidos vigentes na Silver, seis inválidos e uma versão substituída. Gold agrega somente concluídos.</desc>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0B2026"/></marker></defs>
+<rect width="1440" height="840" rx="22" fill="#F9F7F4"/>
+<g font-family="Arial,sans-serif" fill="#0B2026">
+<text x="55" y="65" font-size="18" letter-spacing="2" fill="#B82718">LAB BRICKS / QUALIDADE OBSERVÁVEL</text>
+<text x="55" y="118" font-size="39" font-weight="700">Um destino explicado para cada registro.</text>
+<rect x="485" y="166" width="470" height="92" rx="15" fill="#0B2026"/>
+<text x="510" y="203" font-size="23" font-weight="700" fill="#FFFFFF">BRONZE · 727</text><text x="510" y="237" font-size="20" fill="#EEEDE9">Fonte preservada como chegou</text>
+<path d="M720 266V308" stroke="#0B2026" stroke-width="3" marker-end="url(#a)"/>
+<rect x="420" y="320" width="600" height="92" rx="15" fill="#EEEDE9" stroke="#FF3621" stroke-width="2"/>
+<text x="447" y="356" font-size="23" font-weight="700">ESCOLHER VERSÃO → VALIDAR</text><text x="447" y="389" font-size="20">Chave · atualização · contrato de dados</text>
+<g fill="none" stroke="#0B2026" stroke-width="3" marker-end="url(#a)"><path d="M490 420V451H260V478"/><path d="M720 420V478"/><path d="M950 420V451H1180V478"/></g>
+<rect x="65" y="491" width="390" height="110" rx="15" fill="#FFFFFF" stroke="#0B2026"/><text x="89" y="530" font-size="25" font-weight="700">SILVER · 720</text><text x="89" y="571" font-size="19">Pedidos vigentes e válidos</text>
+<rect x="525" y="491" width="390" height="110" rx="15" fill="#FFFFFF" stroke="#FF3621" stroke-width="2"/><text x="549" y="530" font-size="25" font-weight="700" fill="#B82718">QUARENTENA · 6</text><text x="549" y="571" font-size="19">Fonte e motivo de rejeição</text>
+<rect x="985" y="491" width="390" height="110" rx="15" fill="#FFFFFF" stroke="#0B2026"/><text x="1009" y="530" font-size="25" font-weight="700">SUBSTITUÍDAS · 1</text><text x="1009" y="571" font-size="19">Versão anterior preservada</text>
+<path d="M260 609V656" fill="none" stroke="#0B2026" stroke-width="3" marker-end="url(#a)"/>
+<rect x="65" y="668" width="390" height="110" rx="15" fill="#0B2026"/><text x="89" y="707" font-size="25" font-weight="700" fill="#FFFFFF">GOLD · POR DIA</text><text x="89" y="741" font-size="19" fill="#EEEDE9">Receita de concluídos</text><text x="89" y="765" font-size="16" fill="#EEEDE9">Cancelados ficam fora da receita</text>
+<text x="525" y="706" font-size="36" font-weight="700">727 = 720 + 6 + 1</text><text x="525" y="747" font-size="21">App: Pandas · Notebooks: Spark e Delta</text><text x="525" y="779" font-size="17">Fixture padrão: 720 pedidos · semente 42 · erros ativados</text>
 </g></svg>

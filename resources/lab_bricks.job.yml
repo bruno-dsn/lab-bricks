@@ -1,0 +1,28 @@
+resources:
+  jobs:
+    lab_bricks_estudo:
+      name: Lab Bricks - lakehouse e BI
+      max_concurrent_runs: 1
+      timeout_seconds: 1800
+      parameters:
+        - name: catalogo
+          default: ${var.catalogo}
+      # Sem agenda, credenciais, notificações ou configuração de produção.
+      # Notebook tasks sem cluster explícito usam serverless quando disponível.
+      tasks:
+        - task_key: construir_lakehouse
+          notebook_task:
+            notebook_path: ../notebooks/02_lakehouse_vendas.py
+          max_retries: 0
+        - task_key: conferir_qualidade
+          depends_on:
+            - task_key: construir_lakehouse
+          notebook_task:
+            notebook_path: ../notebooks/07_gate_qualidade.py
+          max_retries: 0
+        - task_key: construir_bi
+          depends_on:
+            - task_key: conferir_qualidade
+          notebook_task:
+            notebook_path: ../notebooks/05_bi_modelagem.py
+          max_retries: 0

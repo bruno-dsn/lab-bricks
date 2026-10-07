@@ -59,7 +59,7 @@ print(counts)
 
 # MAGIC %md
 # MAGIC ## Criar um painel na sua conta
-# MAGIC No editor SQL, escolha o catálogo exibido pelo notebook e seu schema `dbnp_...`. Execute `SELECT * FROM gold_diario ORDER BY data_venda` e crie uma visualização de receita por dia. Salve a consulta em um dashboard disponível no seu workspace.
+# MAGIC No editor SQL, escolha o catálogo exibido pelo notebook e seu schema `lb_...`. Execute `SELECT * FROM gold_diario ORDER BY data_venda` e crie uma visualização de receita por dia. Salve a consulta em um dashboard disponível no seu workspace.
 # MAGIC 
 # MAGIC O painel local do repositório ajuda a experimentar as mesmas métricas. Ele não é uma captura de tela do Databricks.
 # MAGIC 

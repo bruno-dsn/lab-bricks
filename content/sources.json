@@ -1,0 +1,79 @@
+{
+  "ebook-original": {
+    "title": "E-book introdutório original da conversa",
+    "author": "Material fornecido pelo usuário",
+    "year": "não informado",
+    "type": "referência introdutória",
+    "use": "Ponto de partida: Excel, SQL, engenharia, ML e agentes. Conteúdo novo escrito para o Lab Bricks."
+  },
+  "bi-livro": {
+    "title": "Business Intelligence with Databricks SQL",
+    "author": "Vihag Gupta",
+    "year": "2022",
+    "publisher": "Packt",
+    "type": "livro fornecido pelo usuário",
+    "use": "Conceitos de BI, SQL, lakehouse, segurança e desempenho. Interfaces e recursos atualizados pela documentação oficial."
+  },
+  "engenharia-livro": {
+    "title": "Databricks Certified Data Engineer Associate Study Guide",
+    "author": "Derar Alhussein",
+    "year": "2025",
+    "publisher": "O’Reilly",
+    "type": "livro fornecido pelo usuário",
+    "use": "Delta, Spark, incrementos, produção e governança. A edição aborda prova V3; não usamos suas questões nem tratamos essa edição como guia vigente."
+  },
+  "ml-livro": {
+    "title": "Practical Machine Learning on Databricks",
+    "author": "Debu Sinha",
+    "year": "2023",
+    "publisher": "Packt",
+    "type": "livro fornecido pelo usuário",
+    "use": "Features, MLflow, AutoML como baseline, registro, implantação, drift e CI/CD. Exemplos e datasets são próprios."
+  },
+  "llm-guia": {
+    "title": "Um guia compacto sobre grandes modelos de linguagem",
+    "author": "Databricks",
+    "year": "2023",
+    "type": "guia fornecido pelo usuário",
+    "use": "NLP, transformers, personalização e aplicações empresariais. Cronologias e catálogo de modelos não são reproduzidos."
+  },
+  "mit-relatorio": {
+    "title": "Relatório sobre adoção empresarial de IA, versão portuguesa fornecida",
+    "author": "MIT Technology Review Insights; patrocinado pela Databricks",
+    "year": "2025",
+    "type": "relatório patrocinado fornecido pelo usuário",
+    "use": "Qualidade de dados, ROI, competências, flexibilidade e supervisão humana. Sem generalizar estatísticas da pesquisa para o laboratório."
+  },
+  "oficial": {
+    "title": "Documentação oficial atual do Databricks",
+    "author": "Databricks",
+    "year": "consulta em 2026-10-07",
+    "url": "https://docs.databricks.com/aws/en/",
+    "type": "documentação técnica",
+    "use": "Fonte de verdade para nomes atuais, permissões, APIs e limitações. A implementação em uma conta real ainda exige validação."
+  },
+  "pesquisa-rag": {
+    "title": "Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks",
+    "author": "Lewis et al.",
+    "year": "2020",
+    "url": "https://arxiv.org/abs/2005.11401",
+    "type": "artigo de pesquisa",
+    "use": "Distinguir recuperação de evidências e geração condicionada."
+  },
+  "pesquisa-transformer": {
+    "title": "Attention Is All You Need",
+    "author": "Vaswani et al.",
+    "year": "2017",
+    "url": "https://arxiv.org/abs/1706.03762",
+    "type": "artigo de pesquisa",
+    "use": "Atenção e arquitetura Transformer como contexto conceitual; sem implementar treinamento de LLM."
+  },
+  "ml-acao-livro": {
+    "title": "Databricks ML in Action",
+    "author": "Stephanie Rivera; Anastasia Prokaieva; Amanda Baker; Hayley Horn",
+    "year": "2024",
+    "publisher": "Packt",
+    "type": "livro fornecido pelo usuário",
+    "use": "Ciclo de ML, features point-in-time, experimentos, contratos e inferência. Práticas próprias; nomenclatura e MLflow atualizados por documentação oficial."
+  }
+}

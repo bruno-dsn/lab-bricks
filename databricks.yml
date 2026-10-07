@@ -1,0 +1,29 @@
+# Configuração de estudo. Validar e implantar manualmente em uma conta autorizada.
+bundle:
+  name: lab-bricks
+
+include:
+  - resources/*.yml
+
+variables:
+  catalogo:
+    description: Catálogo de estudo no qual você tem permissão para criar schemas e tabelas
+
+sync:
+  include:
+    - notebooks/*.py
+  exclude:
+    - notebooks/*.ipynb
+    - assets/**
+    - content/**
+    - data/**
+    - docs/**
+    - tests/**
+    - .venv/**
+    - mlruns/**
+    - mlartifacts/**
+
+targets:
+  dev:
+    default: true
+    mode: development

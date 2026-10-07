@@ -11,6 +11,7 @@ import tomllib
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "src"))
 from lab.dados import gerar_vendas
+from lab.conteudo import carregar
 from export_notebooks import convert
 
 SECRET_PATTERNS = [
@@ -79,10 +80,10 @@ def verify():
                     problems.append(f"Saída de execução presente: {path.name}")
                 if not code.startswith("%"):
                     ast.parse(code, filename=path.name)
-    for path in [ROOT / "app.py", *(ROOT / "src").rglob("*.py"), *(ROOT / "scripts").glob("*.py"), *(ROOT / "tests").glob("*.py")]:
+    for path in [ROOT / "app.py", *(ROOT / "src").rglob("*.py"), *(ROOT / "scripts").glob("*.py"), *(ROOT / "tests").glob("*.py"), *(ROOT / "pipelines").glob("*.py")]:
         ast.parse(path.read_text(), filename=str(path))
     # Cópias nativas precisam permanecer coerentes com a biblioteca local.
-    for notebook, original in [("00_configuracao", "dados"), ("04_ml_sem_vazamento", "ml")]:
+    for notebook, original in [("00_configuracao", "dados"), ("04_ml_sem_vazamento", "ml"), ("05_bi_modelagem", "bi"), ("09_classificacao_temporal", "classificacao"), ("10_recuperacao_e_evidencias", "recuperacao"), ("11_ciclo_ml_e_contrato", "ciclo_ml")]:
         if (ROOT / f"src/lab/{original}.py").read_text().strip() not in (ROOT / f"notebooks/{notebook}.py").read_text():
             problems.append(f"Função compartilhada divergente no {notebook}")
     with (ROOT / "data/vendas_sinteticas.csv").open(newline="") as f:
@@ -91,6 +92,20 @@ def verify():
     config = tomllib.loads((ROOT / ".streamlit/config.toml").read_text())
     if config["client"]["showErrorDetails"] != "none" or not config["server"]["enableCORS"] or not config["server"]["enableXsrfProtection"]:
         problems.append("Configuração de proteção da interface divergente")
+    try:
+        lessons, tracks, sources = carregar(ROOT / "content")
+        ids = {a.id for a in lessons}
+        questions = json.loads((ROOT / "content/questions.json").read_text())
+        if len({q['id'] for q in questions}) != len(questions):
+            problems.append("IDs de questões duplicados")
+        for question in questions:
+            if question['lesson'] not in ids or question['track'] not in tracks or type(question['answer']) is not int or not 0 <= question['answer'] < len(question['choices']):
+                problems.append("Questão com referência ou resposta inválida")
+        benchmark = json.loads((ROOT / "content/retrieval_benchmark.json").read_text())
+        if any(case['expected'] not in ids for case in benchmark):
+            problems.append("Benchmark referencia aula inexistente")
+    except (ValueError, KeyError) as error:
+        problems.append(f"Catálogo inválido: {error}")
     verify_history(problems)
     if problems:
         print("\n".join(problems));return 1

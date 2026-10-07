@@ -1,25 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 570" role="img" aria-labelledby="title desc">
-<title id="title">Databricks na prática</title>
-<desc id="desc">Trilha de dados em português, com SQL, lakehouse, Delta e machine learning. Um percurso visual de dados recebidos até uma decisão.</desc>
-<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#102438"/><stop offset="1" stop-color="#0a1420"/></linearGradient></defs>
-<rect width="1440" height="570" rx="28" fill="url(#bg)"/>
-<g stroke="#274056" opacity=".45"><path d="M920 0V570M1060 0V570M1200 0V570M1340 0V570M880 90H1440M880 230H1440M880 370H1440M880 510H1440"/></g>
-<g font-family="Arial, sans-serif"><rect x="70" y="58" width="327" height="36" rx="18" fill="#22364a"/>
-<text x="92" y="82" font-size="15" font-weight="700" letter-spacing="2" fill="#8ee0d4">APRENDA COM UM PROJETO</text>
-<text x="70" y="194" font-size="76" font-weight="700" letter-spacing="-3" fill="#f2eee8">Databricks</text>
-<text x="70" y="278" font-size="76" font-weight="700" letter-spacing="-3" fill="#ff795d">na prática.</text>
-<text x="74" y="339" font-size="25" fill="#b0c1d1">Do primeiro dado à primeira decisão.</text>
-<text x="74" y="378" font-size="21" fill="#b0c1d1">Leia a regra. Mude o exemplo. Confira o resultado.</text>
-<text x="74" y="463" font-size="16" font-weight="700" letter-spacing="2" fill="#f2eee8">SQL  /  LAKEHOUSE  /  DELTA  /  ML</text>
-<text x="74" y="514" font-size="14" fill="#7e98af">BRUNO NUNES · TRILHA EM PORTUGUÊS · DADOS FICTÍCIOS</text>
-<g transform="translate(1000 84)"><rect width="338" height="107" rx="18" fill="#22364a" stroke="#48647a"/>
-<circle cx="36" cy="33" r="6" fill="#8ee0d4"/><text x="56" y="39" font-size="16" fill="#8ee0d4">01 · RECEBER</text>
-<text x="30" y="80" font-size="25" fill="#f2eee8">Pedidos e suas versões</text></g>
-<path d="M1169 201V233" stroke="#8ee0d4" stroke-width="3"/><path d="M1162 225L1169 233L1176 225" fill="none" stroke="#8ee0d4" stroke-width="3"/>
-<g transform="translate(941 244)"><rect width="338" height="107" rx="18" fill="#22364a" stroke="#ff795d"/>
-<circle cx="36" cy="33" r="6" fill="#ff795d"/><text x="56" y="39" font-size="16" fill="#ff795d">02 · CONFERIR</text>
-<text x="30" y="80" font-size="25" fill="#f2eee8">Qualidade e métricas</text></g>
-<path d="M1110 362V394" stroke="#8ee0d4" stroke-width="3"/><path d="M1103 386L1110 394L1117 386" fill="none" stroke="#8ee0d4" stroke-width="3"/>
-<g transform="translate(1000 405)"><rect width="338" height="107" rx="18" fill="#22364a" stroke="#48647a"/>
-<circle cx="36" cy="33" r="6" fill="#8ee0d4"/><text x="56" y="39" font-size="16" fill="#8ee0d4">03 · RESPONDER</text>
-<text x="30" y="80" font-size="25" fill="#f2eee8">Análise e previsão</text></g></g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 610" role="img" aria-labelledby="t d">
+<title id="t">Lab Bricks: seu laboratório de dados</title><desc id="d">Seis trilhas de estudo: fundamentos, SQL e BI, engenharia, ML, IA e governança. Trinta e três aulas, doze notebooks e três projetos próprios.</desc>
+<rect width="1440" height="610" rx="26" fill="#0B2026"/>
+<g stroke="#27424A" stroke-width="1" opacity=".65"><path d="M855 0V610M1010 0V610M1165 0V610M1320 0V610M800 110H1440M800 265H1440M800 420H1440M800 575H1440"/></g>
+<g font-family="Arial,sans-serif">
+<rect x="64" y="60" width="31" height="31" rx="6" fill="#FF3621"/><rect x="104" y="60" width="31" height="31" rx="6" fill="#F9F7F4"/>
+<rect x="64" y="100" width="31" height="31" rx="6" fill="#F9F7F4"/><rect x="104" y="100" width="31" height="31" rx="6" fill="#FF3621"/>
+<text x="163" y="92" fill="#F9F7F4" font-size="18" letter-spacing="3">ESTUDE. EXPERIMENTE.</text>
+<text x="163" y="124" fill="#F9F7F4" font-size="18" letter-spacing="3">EXPLIQUE SUAS DECISÕES.</text>
+<text x="60" y="254" fill="#FFFFFF" font-size="100" font-weight="700" letter-spacing="-5">Lab Bricks</text>
+<text x="64" y="315" fill="#FF3621" font-size="28" font-weight="700">Do fundamento à evidência.</text>
+<text x="64" y="374" fill="#EEEDE9" font-size="24">Um laboratório forte para aprender Databricks.</text>
+<text x="64" y="412" fill="#EEEDE9" font-size="22">Conteúdo próprio. Prática guiada. Espaço para evoluir.</text>
+<text x="64" y="500" fill="#FFFFFF" font-size="22" font-weight="700">33 aulas · 12 notebooks · 3 projetos</text>
+<text x="64" y="552" fill="#EEEDE9" font-size="15" letter-spacing="1">BRUNO NUNES · PORTUGUÊS · DADOS FICTÍCIOS · v2.0</text>
+<g transform="translate(875 105)"><rect width="220" height="130" rx="16" fill="#F9F7F4"/>
+<text x="22" y="40" fill="#FF3621" font-size="15" font-weight="700">01 / 02</text><text x="22" y="80" fill="#0B2026" font-size="25" font-weight="700">Fundamentos</text><text x="22" y="112" fill="#0B2026" font-size="21">SQL e BI</text></g>
+<g transform="translate(1120 180)"><rect width="220" height="130" rx="16" fill="#FF3621"/>
+<text x="22" y="40" fill="#FFFFFF" font-size="15" font-weight="700">03 / 04</text><text x="22" y="80" fill="#FFFFFF" font-size="25" font-weight="700">Engenharia</text><text x="22" y="112" fill="#FFFFFF" font-size="21">ML e MLOps</text></g>
+<g transform="translate(875 340)"><rect width="220" height="130" rx="16" fill="#F9F7F4"/>
+<text x="22" y="40" fill="#FF3621" font-size="15" font-weight="700">05 / 06</text><text x="22" y="80" fill="#0B2026" font-size="25" font-weight="700">IA e evidências</text><text x="22" y="112" fill="#0B2026" font-size="21">Governança</text></g>
+</g></svg>

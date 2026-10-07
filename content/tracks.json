@@ -1,0 +1,32 @@
+{
+  "fundamentos": {
+    "title": "01 · Fundamentos e ambiente",
+    "description": "Ler dados, definir grão e escolher onde executar.",
+    "hours": "6–8 horas"
+  },
+  "sql-bi": {
+    "title": "02 · SQL, modelagem e BI",
+    "description": "Consultas confiáveis, janelas, dimensões e dashboards.",
+    "hours": "8–12 horas"
+  },
+  "engenharia": {
+    "title": "03 · Engenharia e lakehouse",
+    "description": "Qualidade, Delta, incrementos e pipelines declarativos.",
+    "hours": "10–14 horas"
+  },
+  "machine-learning": {
+    "title": "04 · Machine learning e MLOps",
+    "description": "Baselines, validação temporal, decisões e ciclo de modelos.",
+    "hours": "14–20 horas"
+  },
+  "ia-recuperacao": {
+    "title": "05 · IA, LLMs e recuperação",
+    "description": "Contexto, evidências, avaliação e revisão humana.",
+    "hours": "8–12 horas"
+  },
+  "governanca": {
+    "title": "06 · Governança e operação",
+    "description": "Permissões, Jobs, entrega, observabilidade e valor.",
+    "hours": "8–12 horas"
+  }
+}

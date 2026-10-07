@@ -1,0 +1,512 @@
+[
+  {
+    "id": "q01",
+    "track": "fundamentos",
+    "question": "Um pedido tem três itens de duas unidades. Quantos pedidos, itens e unidades existem?",
+    "choices": [
+      "1 pedido, 3 itens, 6 unidades",
+      "3 pedidos, 3 itens, 3 unidades",
+      "6 pedidos, 3 itens, 2 unidades"
+    ],
+    "answer": 0,
+    "explanation": "O grão separa pedido, linha de item e quantidade. Contar linhas não conta automaticamente pedidos.",
+    "lesson": "f02-grao"
+  },
+  {
+    "id": "q02",
+    "track": "fundamentos",
+    "question": "Um schema com hash do usuário garante isolamento de acesso?",
+    "choices": [
+      "Sim, o nome impede leituras",
+      "Não; privilégios do Unity Catalog controlam o acesso",
+      "Só se o hash for longo"
+    ],
+    "answer": 1,
+    "explanation": "O nome evita colisões. Autorização depende dos privilégios, não da obscuridade do nome.",
+    "lesson": "f01-mapa"
+  },
+  {
+    "id": "q03",
+    "track": "fundamentos",
+    "question": "Qual operação Spark normalmente dispara execução?",
+    "choices": [
+      "select que constrói um plano",
+      "withColumn que acrescenta expressão",
+      "count que pede um resultado"
+    ],
+    "answer": 2,
+    "explanation": "Transformações constroem um plano; uma ação como count precisa executar o trabalho.",
+    "lesson": "f03-python"
+  },
+  {
+    "id": "q04",
+    "track": "fundamentos",
+    "question": "A versão mais recente de um pedido tem preço inválido. O que o pipeline faz?",
+    "choices": [
+      "Usa a versão antiga sem avisar",
+      "Encaminha a versão vigente para quarentena",
+      "Converte o preço em zero"
+    ],
+    "answer": 1,
+    "explanation": "A versão vigente inválida fica explícita. Ressuscitar uma versão antiga esconderia o erro da fonte.",
+    "lesson": "f04-contrato"
+  },
+  {
+    "id": "q05",
+    "track": "fundamentos",
+    "question": "727 entradas, 6 rejeitadas e 1 substituída deixam quantas na Silver?",
+    "choices": [
+      "720",
+      "721",
+      "727"
+    ],
+    "answer": 0,
+    "explanation": "727 = 720 + 6 + 1 reconcilia os destinos das linhas no cenário padrão.",
+    "lesson": "f04-contrato"
+  },
+  {
+    "id": "q06",
+    "track": "fundamentos",
+    "question": "Um teste local de transformação comprova permissões no Databricks?",
+    "choices": [
+      "Sim, ambas usam Python",
+      "Só com a mesma semente",
+      "Não; permissões exigem teste na conta"
+    ],
+    "answer": 2,
+    "explanation": "Evidência local tem escopo local. Unity Catalog e Jobs precisam de execução real.",
+    "lesson": "f05-reprodutibilidade"
+  },
+  {
+    "id": "q07",
+    "track": "sql-bi",
+    "question": "Depois de juntar pedidos e itens, qual expressão conta pedidos?",
+    "choices": [
+      "COUNT(*)",
+      "COUNT(DISTINCT pedido_id)",
+      "SUM(quantidade)"
+    ],
+    "answer": 1,
+    "explanation": "O JOIN muda o grão para item. COUNT DISTINCT preserva a contagem de pedidos.",
+    "lesson": "s02-joins"
+  },
+  {
+    "id": "q08",
+    "track": "sql-bi",
+    "question": "Qual cláusula filtra um grupo por SUM(valor)?",
+    "choices": [
+      "WHERE SUM(valor)>100",
+      "ORDER BY SUM(valor)>100",
+      "HAVING SUM(valor)>100"
+    ],
+    "answer": 2,
+    "explanation": "HAVING filtra depois da agregação; WHERE atua em linhas.",
+    "lesson": "s01-agregacoes"
+  },
+  {
+    "id": "q09",
+    "track": "sql-bi",
+    "question": "Uma dimensão contém a mesma chave duas vezes. Qual risco existe no JOIN?",
+    "choices": [
+      "Multiplicar linhas e receita",
+      "Reduzir sempre a receita à metade",
+      "Nenhum se usar INNER JOIN"
+    ],
+    "answer": 0,
+    "explanation": "Cada item pode encontrar duas linhas na dimensão; unicidade é uma pré-condição da métrica.",
+    "lesson": "s02-joins"
+  },
+  {
+    "id": "q10",
+    "track": "sql-bi",
+    "question": "LAG da linha anterior significa sempre o dia anterior?",
+    "choices": [
+      "Sim, em qualquer ORDER BY",
+      "Não, pode haver datas ausentes",
+      "Só quando o valor é inteiro"
+    ],
+    "answer": 1,
+    "explanation": "A janela ordena linhas existentes. Um calendário completo é necessário para interpretar dias ausentes.",
+    "lesson": "s03-janelas"
+  },
+  {
+    "id": "q11",
+    "track": "sql-bi",
+    "question": "Margem bruta de mercadoria é lucro líquido?",
+    "choices": [
+      "Sim, se a receita for positiva",
+      "Sim, se todos os pedidos forem concluídos",
+      "Não, faltam despesas e outros custos"
+    ],
+    "answer": 2,
+    "explanation": "A margem do laboratório subtrai custo da mercadoria e não inclui impostos, frete ou operação.",
+    "lesson": "s04-dashboard"
+  },
+  {
+    "id": "q12",
+    "track": "sql-bi",
+    "question": "Uma segunda query foi mais rápida após aquecimento. O que concluir?",
+    "choices": [
+      "Photon garantiu o ganho",
+      "Nada definitivo sem controlar cache, compute e equivalência",
+      "A segunda query é sempre melhor"
+    ],
+    "answer": 1,
+    "explanation": "Um benchmark justo controla condições e compara a mesma pergunta com repetições.",
+    "lesson": "s05-desempenho"
+  },
+  {
+    "id": "q13",
+    "track": "engenharia",
+    "question": "Para que serve a Bronze?",
+    "choices": [
+      "Preservar a fonte e sua evidência",
+      "Guardar somente dados válidos",
+      "Substituir controle de acesso"
+    ],
+    "answer": 0,
+    "explanation": "Preservação permite auditoria e reprocessamento; não elimina governança.",
+    "lesson": "e01-medallion"
+  },
+  {
+    "id": "q14",
+    "track": "engenharia",
+    "question": "Time travel é um backup ilimitado?",
+    "choices": [
+      "Sim, enquanto a tabela existir",
+      "Não, depende de retenção e arquivos disponíveis",
+      "Sim, basta ter Parquet"
+    ],
+    "answer": 1,
+    "explanation": "Versões podem deixar de ser consultáveis quando arquivos antigos são removidos.",
+    "lesson": "e02-delta"
+  },
+  {
+    "id": "q15",
+    "track": "engenharia",
+    "question": "Repetir um lote com mesmo ID e conteúdo no simulador faz o quê?",
+    "choices": [
+      "Duplica Bronze",
+      "Atualiza todo o histórico",
+      "É ignorado pelo manifesto"
+    ],
+    "answer": 2,
+    "explanation": "O manifesto detecta a repetição exata. Chave e versão continuam sendo outra responsabilidade.",
+    "lesson": "e03-incremental"
+  },
+  {
+    "id": "q16",
+    "track": "engenharia",
+    "question": "Mesmo ID de lote com conteúdo diferente é tratado como?",
+    "choices": [
+      "Novo lote automaticamente",
+      "Erro de identidade do lote",
+      "Repetição equivalente"
+    ],
+    "answer": 1,
+    "explanation": "Reutilizar identidade para outro conteúdo viola o contrato e deve ser investigado.",
+    "lesson": "e03-incremental"
+  },
+  {
+    "id": "q17",
+    "track": "engenharia",
+    "question": "Qual a intenção de trigger availableNow?",
+    "choices": [
+      "Processar o disponível e terminar",
+      "Executar para sempre sem checkpoint",
+      "Garantir zero arquivos inválidos"
+    ],
+    "answer": 0,
+    "explanation": "O trigger limita o ciclo de execução, não substitui qualidade nem estado.",
+    "lesson": "e04-json-streaming"
+  },
+  {
+    "id": "q18",
+    "track": "engenharia",
+    "question": "Uma função de pipeline declarativa deve principalmente?",
+    "choices": [
+      "Executar write e enviar mensagens",
+      "Criar um cluster novo",
+      "Retornar um DataFrame sem efeitos externos"
+    ],
+    "answer": 2,
+    "explanation": "O mecanismo planeja a execução a partir das definições e dependências.",
+    "lesson": "e05-declarativo"
+  },
+  {
+    "id": "q19",
+    "track": "machine-learning",
+    "question": "Uma baseline serve para?",
+    "choices": [
+      "Garantir que o modelo complexo ganha",
+      "Dar referência comparável sob o mesmo protocolo",
+      "Substituir teste temporal"
+    ],
+    "answer": 1,
+    "explanation": "Sem referência simples, uma métrica isolada pouco diz sobre melhoria.",
+    "lesson": "m01-baseline"
+  },
+  {
+    "id": "q20",
+    "track": "machine-learning",
+    "question": "Qual média evita incluir o alvo de hoje?",
+    "choices": [
+      "receita.rolling(7).mean()",
+      "receita.shift(-1).rolling(7).mean()",
+      "receita.shift(1).rolling(7).mean()"
+    ],
+    "answer": 2,
+    "explanation": "A defasagem acontece antes da média e exclui o próprio dia previsto.",
+    "lesson": "m02-temporal"
+  },
+  {
+    "id": "q21",
+    "track": "machine-learning",
+    "question": "Duração real da entrega é adequada para prever atraso antes da viagem?",
+    "choices": [
+      "Não; só fica disponível depois",
+      "Sim, pois correlaciona bem",
+      "Sim, se normalizar"
+    ],
+    "answer": 0,
+    "explanation": "Disponibilidade no instante da decisão é requisito, independentemente da correlação.",
+    "lesson": "m02-temporal"
+  },
+  {
+    "id": "q22",
+    "track": "machine-learning",
+    "question": "Aumentar o limiar de alerta geralmente faz o quê?",
+    "choices": [
+      "Aumenta ou mantém alertas",
+      "Reduz ou mantém alertas",
+      "Aumenta a AUC automaticamente"
+    ],
+    "answer": 1,
+    "explanation": "O limiar muda decisões. AUC das mesmas probabilidades permanece igual.",
+    "lesson": "m03-classificacao"
+  },
+  {
+    "id": "q23",
+    "track": "machine-learning",
+    "question": "Registrar um modelo no MLflow implanta serving automaticamente?",
+    "choices": [
+      "Sempre",
+      "Só no Unity Catalog",
+      "Não; tracking, registry e serving são etapas distintas"
+    ],
+    "answer": 2,
+    "explanation": "Registro e implantação têm configurações e critérios próprios.",
+    "lesson": "m04-mlops"
+  },
+  {
+    "id": "q24",
+    "track": "machine-learning",
+    "question": "PSI alto prova que a qualidade preditiva caiu?",
+    "choices": [
+      "Não; é sinal de distribuição a investigar",
+      "Sim, sem precisar de rótulos",
+      "Sim, quando a amostra é pequena"
+    ],
+    "answer": 0,
+    "explanation": "Resultado preditivo exige rótulos e avaliação; drift de entrada não prova falha.",
+    "lesson": "m05-drift"
+  },
+  {
+    "id": "q25",
+    "track": "ia-recuperacao",
+    "question": "Uma resposta fluente de LLM é uma evidência?",
+    "choices": [
+      "Sim, se longa",
+      "Não; precisa de fonte e verificação",
+      "Sim, com temperatura zero"
+    ],
+    "answer": 1,
+    "explanation": "Fluência e factualidade são propriedades diferentes.",
+    "lesson": "i01-llms"
+  },
+  {
+    "id": "q26",
+    "track": "ia-recuperacao",
+    "question": "A busca TF-IDF do app é uma geração de resposta por LLM?",
+    "choices": [
+      "Não; recupera documentos por termos",
+      "Sim, gera tokens",
+      "Sim, é um embedding denso"
+    ],
+    "answer": 0,
+    "explanation": "O módulo executa recuperação lexical, com limitações de sinônimos explícitas.",
+    "lesson": "i02-busca"
+  },
+  {
+    "id": "q27",
+    "track": "ia-recuperacao",
+    "question": "Score de cosseno de 0,6 significa 60% de chance de estar correto?",
+    "choices": [
+      "Sim",
+      "Só com três documentos",
+      "Não; não é probabilidade calibrada"
+    ],
+    "answer": 2,
+    "explanation": "É similaridade de representação, não confiança factual.",
+    "lesson": "i02-busca"
+  },
+  {
+    "id": "q28",
+    "track": "ia-recuperacao",
+    "question": "Quando falta evidência, o assistente deve?",
+    "choices": [
+      "Completar com algo plausível",
+      "Informar a insuficiência e pedir contexto pertinente",
+      "Escolher a frase mais longa"
+    ],
+    "answer": 1,
+    "explanation": "Uma política de abstenção evita transformar ausência de dado em invenção.",
+    "lesson": "i03-rag"
+  },
+  {
+    "id": "q29",
+    "track": "ia-recuperacao",
+    "question": "Bom recall@k comprova segurança de uma resposta?",
+    "choices": [
+      "Sim, em todo sistema",
+      "Sim, se k for 5",
+      "Não; recuperação e geração têm avaliações distintas"
+    ],
+    "answer": 2,
+    "explanation": "Encontrar o documento não comprova uso correto nem defesa contra instruções maliciosas.",
+    "lesson": "i04-avaliacao"
+  },
+  {
+    "id": "q30",
+    "track": "ia-recuperacao",
+    "question": "Horas poupadas multiplicadas por custo/hora representam?",
+    "choices": [
+      "Capacidade estimada, com premissas; não lucro garantido",
+      "Lucro líquido realizado",
+      "Retorno financeiro sem custos"
+    ],
+    "answer": 0,
+    "explanation": "A estimativa ainda precisa de adoção, revisão, ferramenta e impacto realizado.",
+    "lesson": "i05-valor"
+  },
+  {
+    "id": "q31",
+    "track": "governanca",
+    "question": "Onde guardar um token pessoal para compartilhar a aula?",
+    "choices": [
+      "No notebook sem outputs",
+      "Em nenhum arquivo publicado; usar autenticação apropriada",
+      "No JSON de progresso"
+    ],
+    "answer": 1,
+    "explanation": "Segredos não entram no código, outputs ou progresso.",
+    "lesson": "g01-acesso"
+  },
+  {
+    "id": "q32",
+    "track": "governanca",
+    "question": "Um gate de qualidade falhou. O consumidor deve?",
+    "choices": [
+      "Seguir sempre para manter agenda",
+      "Apagar checkpoint",
+      "Respeitar a dependência e não publicar como válido"
+    ],
+    "answer": 2,
+    "explanation": "Falha de contrato precisa bloquear a publicação prevista e preservar evidência.",
+    "lesson": "g02-jobs"
+  },
+  {
+    "id": "q33",
+    "track": "governanca",
+    "question": "A CI deste projeto faz deploy Databricks?",
+    "choices": [
+      "Não; valida fonte, testes e dependências",
+      "Sim, com credencial embutida",
+      "Sim, quando alguém abre o app"
+    ],
+    "answer": 0,
+    "explanation": "Deploy é uma etapa separada e manual na conta autorizada.",
+    "lesson": "g03-entrega"
+  },
+  {
+    "id": "q34",
+    "track": "governanca",
+    "question": "Para acrescentar uma aula válida, é necessário editar app.py?",
+    "choices": [
+      "Sempre",
+      "Não; o catálogo descobre Markdown com metadados válidos",
+      "Só se tiver uma referência"
+    ],
+    "answer": 1,
+    "explanation": "IDs, fontes e pré-requisitos seguem o contrato; o código do app fica estável.",
+    "lesson": "g03-entrega"
+  },
+  {
+    "id": "q35",
+    "track": "governanca",
+    "question": "Um Job verde garante dados frescos?",
+    "choices": [
+      "Sim",
+      "Sim, se terminou rápido",
+      "Não; frescor da fonte é outra medida"
+    ],
+    "answer": 2,
+    "explanation": "Sucesso técnico não prova atualização nem reconciliação.",
+    "lesson": "g04-observabilidade"
+  },
+  {
+    "id": "q36",
+    "track": "governanca",
+    "question": "Marcar uma aula concluída no app representa?",
+    "choices": [
+      "Seu registro pessoal; não certificação automática",
+      "Aprovação oficial Databricks",
+      "Execução cloud comprovada"
+    ],
+    "answer": 0,
+    "explanation": "A marcação organiza estudo; evidências dos projetos demonstram competência.",
+    "lesson": "g05-evolucao"
+  },
+  {
+    "id": "m07-q1",
+    "track": "machine-learning",
+    "lesson": "m06-features-temporais",
+    "question": "Um evento ocorreu às 9h, mas sua feature só foi publicada às 12h. Pode entrar na previsão das 10h?",
+    "choices": [
+      "Sim, pois ocorreu antes das 10h",
+      "Não, pois ainda não estava disponível",
+      "Sim, se aumentar a AUC",
+      "Somente se usar a tabela atual"
+    ],
+    "answer": 1,
+    "explanation": "Disponibilidade, não apenas ocorrência, determina o que o modelo poderia saber. Preserve uma versão anterior ou sinalize ausência."
+  },
+  {
+    "id": "m08-q1",
+    "track": "machine-learning",
+    "lesson": "m07-selecao-validacao",
+    "question": "Qual mudança deve preservar o modelo e limiar escolhidos na validação?",
+    "choices": [
+      "Trocar todos os rótulos do teste final",
+      "Trocar o custo de falso negativo da validação",
+      "Mudar os candidatos de treino",
+      "Alterar os rótulos da validação"
+    ],
+    "answer": 0,
+    "explanation": "Os rótulos do teste só avaliam uma escolha já congelada. Se alterarem a seleção, o teste foi usado no desenvolvimento."
+  },
+  {
+    "id": "m09-q1",
+    "track": "machine-learning",
+    "lesson": "m08-contrato-inferencia",
+    "question": "Uma assinatura MLflow elimina a necessidade de validar unidades e limites do domínio?",
+    "choices": [
+      "Sim, sempre",
+      "Só para regressão",
+      "Não; schema e semântica têm responsabilidades distintas",
+      "Sim, se houver um alias Champion"
+    ],
+    "answer": 2,
+    "explanation": "A assinatura descreve estrutura e tipos. Unidades, disponibilidade, valores admissíveis e comportamento de falha exigem um contrato e verificações próprias."
+  }
+]
