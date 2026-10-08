@@ -1,5 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 610" role="img" aria-labelledby="t d">
-<title id="t">Lab Bricks: seu laboratório de dados</title><desc id="d">Seis trilhas de estudo: fundamentos, SQL e BI, engenharia, ML, IA e governança. Trinta e três aulas, doze notebooks e três projetos próprios.</desc>
+<title id="t">Lab Bricks: seu laboratório de dados</title><desc id="d">Seis trilhas de estudo: fundamentos, SQL e BI, engenharia, ML, IA e governança. Quarenta e cinco aulas, dez etapas e quatorze exercícios próprios.</desc>
 <rect width="1440" height="610" rx="26" fill="#0B2026"/>
 <g stroke="#27424A" stroke-width="1" opacity=".65"><path d="M855 0V610M1010 0V610M1165 0V610M1320 0V610M800 110H1440M800 265H1440M800 420H1440M800 575H1440"/></g>
 <g font-family="Arial,sans-serif">
@@ -11,8 +11,8 @@
 <text x="64" y="315" fill="#FF3621" font-size="28" font-weight="700">Do fundamento à evidência.</text>
 <text x="64" y="374" fill="#EEEDE9" font-size="24">Um laboratório forte para aprender Databricks.</text>
 <text x="64" y="412" fill="#EEEDE9" font-size="22">Conteúdo próprio. Prática guiada. Espaço para evoluir.</text>
-<text x="64" y="500" fill="#FFFFFF" font-size="22" font-weight="700">33 aulas · 12 notebooks · 3 projetos</text>
-<text x="64" y="552" fill="#EEEDE9" font-size="15" letter-spacing="1">BRUNO NUNES · PORTUGUÊS · DADOS FICTÍCIOS · v2.0</text>
+<text x="64" y="500" fill="#FFFFFF" font-size="22" font-weight="700">45 aulas · 17 notebooks · 14 exercícios · 3 projetos</text>
+<text x="64" y="552" fill="#EEEDE9" font-size="15" letter-spacing="1">BRUNO NUNES · PORTUGUÊS · DADOS SINTÉTICOS E PÚBLICOS · v3.0</text>
 <g transform="translate(875 105)"><rect width="220" height="130" rx="16" fill="#F9F7F4"/>
 <text x="22" y="40" fill="#FF3621" font-size="15" font-weight="700">01 / 02</text><text x="22" y="80" fill="#0B2026" font-size="25" font-weight="700">Fundamentos</text><text x="22" y="112" fill="#0B2026" font-size="21">SQL e BI</text></g>
 <g transform="translate(1120 180)"><rect width="220" height="130" rx="16" fill="#FF3621"/>

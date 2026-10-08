@@ -29,3 +29,7 @@ Execução Spark opcional usa `requirements-spark.txt` e Java compatível. Execu
 Não versionar ambientes, caches, logs, arquivos ZIP, progresso pessoal, PDFs/EPUBs de referência, `mlruns`, credenciais ou outputs de notebooks. O empacotador seleciona formatos e pastas explicitamente. Novos formatos exigem revisão do contrato de entrega e licença.
 
 Use a paleta declarada no README e uma marca original. Diagramas devem explicar relações; gráficos devem vir de dados reais do fixture e indicar parâmetros. Consulte SECURITY.md antes de relatar um problema.
+
+## Escola 3.0
+
+Inclua a aula em uma etapa de school.json e mantenha os pré-requisitos. Exercício novo precisa de esqueleto, referência e teste que avalie contrato e casos distintos. Preserve trabalho do aluno. Benchmarks congelados não são editados para aumentar resultados. Declare origem/licença de dados e registre execução real separadamente de revisão sintática. Regere notebooks compartilhados, verifique o catálogo e atualize a documentação.

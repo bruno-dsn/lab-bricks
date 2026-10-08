@@ -1,130 +1,105 @@
+# Lab Bricks - escola prática de dados e Databricks
 ![Lab Bricks](assets/capa.svg)
 
-# Lab Bricks
+**Edição 3.0.** Um percurso em português para ler, escrever código, errar, investigar e apresentar evidências. O projeto começou no e-book de Databricks e ganhou aulas próprias, exercícios corrigidos e casos de engenharia, BI, ML e IA.
 
-Um laboratório em português para aprender Databricks com **33 aulas próprias, 12 notebooks, três projetos e experiências interativas**. Você estuda conceitos, muda parâmetros, observa resultados e constrói evidências do que aprendeu.
+**Comece pela página Minha escola.** Há 45 aulas em seis trilhas, organizadas em 10 etapas de estudo, 14 exercícios com 64 verificações, 63 questões, três missões SQL, três projetos guiados, 23 páginas no app e 17 notebooks em duas representações. Marcar uma aula como lida não demonstra domínio: produza uma solução, explique um erro e guarde seu resultado.
 
-[![Validar laboratório](https://github.com/bruno-dsn/lab-bricks/actions/workflows/ci.yml/badge.svg)](https://github.com/bruno-dsn/lab-bricks/actions/workflows/ci.yml)
+## Rodar no VS Code
 
-**Comece por [f01: mapa e ambiente](content/aulas/f01-mapa.md)**, siga a [trilha completa](docs/TRILHA.md) e abra o app para experimentar. O conteúdo é independente; dados, marca, código, exercícios e perguntas são próprios. A paleta usa Lava, Navy e Oat como inspiração visual do Databricks.
-
-## O que você vai construir
-
-| Trilha | O que pratica | Evidência |
-|---|---|---|
-| Fundamentos | Ambiente, grão, DataFrames, contratos, reprodução | Contrato e reconciliação |
-| SQL e BI | Agregações, joins, CTEs, janelas e dashboards | Queries e indicadores confiáveis |
-| Engenharia | Medallion, Delta, MERGE, JSON, Auto Loader e pipeline declarativa | Lakehouse e gates de qualidade |
-| Machine learning | Baseline, corte temporal, classificação, custo, MLflow e drift | Experimento e política de decisão |
-| IA e recuperação | LLMs, busca lexical, desenho RAG, avaliação e supervisão | Evidências, benchmark e abstenção |
-| Governança | Unity Catalog, Jobs, bundles, CI, observabilidade e evolução | Matriz de acesso e runbook |
-
-Cada aula possui problema, conceito, exemplo explicado, prática, resultado esperado, erros comuns, desafio, critério de conclusão e referências. As **39 perguntas comentadas** são originais. O [mapa dos materiais](docs/FONTES.md) explica o que cada referência acrescentou e quais instruções antigas foram atualizadas.
-
-## Rode o laboratório local
-
-Use **Python 3.12**. O lock inclui as dependências do app, testes e geração de imagens.
+A versão validada usa **Python 3.12**. Se o seu `python3` aponta para 3.14, crie o ambiente com o executável 3.12 explicitamente. No macOS com Homebrew:
 
 ```bash
-git clone https://github.com/bruno-dsn/lab-bricks.git
+brew install python@3.12
 cd lab-bricks
-python -m venv .venv
-```
-
-Ative o ambiente:
-
-```bash
-# Linux / macOS
+"$(brew --prefix python@3.12)/bin/python3.12" -m venv .venv
 source .venv/bin/activate
-# Windows PowerShell
-# .venv\Scripts\Activate.ps1
-```
-
-Depois:
-
-```bash
 python -m pip install -r requirements.lock
-python -m streamlit run app.py
+python scripts/iniciar.py
 ```
 
-O app oferece 13 páginas: início, trilha/progresso, biblioteca, pipeline, SQL, BI, incrementos, previsão, classificação, ciclo de ML, recuperação, perguntas e inclusão de conteúdo. O progresso fica na sessão: **exporte o JSON para guardar e importe para restaurar**. Não há cadastro nem banco compartilhado de alunos.
+O último comando usa o Python do ambiente, anuncia o endereço e inicia o Streamlit em localhost. Se o navegador não abrir, acesse **http://localhost:8501**. Em outro terminal no macOS: `open http://localhost:8501`.
 
-## Faça experiências que ensinam
+No Linux, use `python3.12 -m venv .venv` e ative com `source .venv/bin/activate`. No Windows, use `py -3.12 -m venv .venv` e `.venv\Scripts\Activate.ps1`. Depois, os comandos de instalação e início são os mesmos. No VS Code, selecione o interpretador da pasta .venv.
 
-- **Pipeline:** inspecione 727 registros → 720 pedidos válidos, seis rejeitados e uma versão substituída no cenário padrão.
-- **BI:** use pedidos com vários itens, quatro tabelas e joins; compare linhas, pedidos e unidades. Receita e margem usam preço/custo da transação.
-- **Incrementos:** repita lotes, receba eventos antigos e correções inválidas; observe manifesto e versão vigente.
-- **ML:** compare Ridge com repetir ontem; classifique risco de atraso com corte temporal, baseline, matriz de confusão e custos ilustrativos.
-- **IA:** recupere trechos das aulas e avalie recall@k. A busca usa TF-IDF; **não executa geração por LLM** nem chama serviços externos.
-
-![Fluxo de qualidade](assets/arquitetura.svg)
-
-![Experimento de previsão](assets/experimento.png)
-
-![Classificação e tipos de erro](assets/classificacao.png)
-
-## Pratique no Databricks
-
-Importe os arquivos `.py` ou `.ipynb` de [notebooks](notebooks), preservando seus nomes e a mesma pasta. Execute `00_configuracao` em um catálogo de estudo autorizado. O schema `lb_<hash>` reduz colisão de nomes; **privilégios Unity Catalog controlam o acesso**.
-
-| Notebook | Experiência |
-|---|---|
-| 00 | Catálogo, namespace e fonte reproduzível |
-| 01 | Spark SQL e agregações |
-| 02 | Bronze, Silver, quarentena e Gold em Delta |
-| 03 | MERGE idempotente e comparação de conteúdo |
-| 04 | Previsão sem vazamento; Tracking opcional |
-| 05 | Modelagem BI, joins e janelas |
-| 06 | JSON aninhado e quarentena de mensagens/itens |
-| 07 | Gate de qualidade para Jobs |
-| 08 | Auto Loader em volume próprio, opcional |
-| 09 | Classificação temporal e drift exploratório |
-| 10 | Recuperação lexical e evidências |
-| 11 | Features point-in-time, seleção 60/20/20 e contrato; MLflow 3 opcional |
-
-Consulte o [guia nativo](docs/GUIA_DATABRICKS.md), o [registro de validação](docs/VALIDACAO_DATABRICKS.md) e [MLflow/operação](docs/MLFLOW_E_OPERACAO.md). Há também uma [pipeline declarativa](pipelines/qualidade_declarativa.py) e um [bundle de Job](databricks.yml) para implantação manual em ambiente de estudo.
-
-**Escopo da validação:** os testes automatizados exercitam o app e as funções locais; há validação de cenários específicos em Spark local. Delta, Unity Catalog, Jobs, Auto Loader, pipelines e MLflow precisam de execução e permissões na sua conta. Importar um notebook não comprova essa execução. O [mapa de certificação](docs/CERTIFICACAO.md) indica cobertura e lacunas, sem promessa de aprovação.
-
-Veja o [ciclo completo de ML](docs/CICLO_ML.md): disponibilidade das features, seleção na validação, teste final e contrato de inferência.
-
-## Construa seu portfólio
-
-1. [Lakehouse que merece confiança](content/projetos/01-lakehouse-confiavel.md): contratos, reconciliação, incrementos e operação.
-2. [Painel sem receita multiplicada](content/projetos/02-bi-decisao.md): grão, métricas, filtros e decisão.
-3. [Modelos e assistência com evidências](content/projetos/03-ml-ia-evidencias.md): avaliação temporal, custo, busca e supervisão.
-
-As rubricas pedem resultados reproduzíveis, não apenas screenshots. O ritmo sugerido para as seis trilhas é **54–78 horas**, além dos projetos; ajuste conforme sua experiência e disponibilidade. Veja [desafios e soluções orientadas](docs/DESAFIOS.md).
-
-## Acrescente conteúdos e mantenha a trilha viva
-
-A página **Adicionar conteúdo** gera um template para baixar. Pelo terminal:
+O app funciona sem conta Databricks e sem baixar modelos de IA. O comando direto também funciona:
 
 ```bash
-python scripts/new_lesson.py --id g06-minha-pratica \
-  --title "Minha próxima prática" --track governanca
-python scripts/verify_project.py
-python -m pytest
+python -m streamlit run app.py --server.address localhost --server.headless false
 ```
 
-Preencha `content/aulas/*.md` com cabeçalho TOML, ID estável, trilha, objetivos, fontes e pré-requisitos. O app descobre aulas válidas automaticamente. Acrescente fontes em `content/sources.json`, questões em `content/questions.json` e projetos em `content/projetos`. O verificador detecta referências inexistentes, IDs duplicados e ciclos de pré-requisitos. Leia [como contribuir](CONTRIBUTING.md).
+## Aprender fazendo
 
-## Valide e monte uma entrega limpa
+1. Abra Minha escola e escolha a primeira etapa.
+2. Leia problema, conceito, exemplo, prática e erros comuns da aula.
+3. Edite o exercício em `exercicios/`, escrevendo o núcleo da solução.
+4. Rode `python scripts/corrigir.py ex01_grao`. Comece pelo erro apontado; consulte a solução depois da sua tentativa.
+5. Importe o feedback em Minha escola e registre sua explicação. Exporte o caderno pessoal para conservar o trabalho.
+6. Resolva as missões SQL e conclua um projeto com a rubrica e seu relatório.
+
+O caderno fica na sessão, não em uma conta remota. Feedback é um registro pessoal editável, não certificado. Atualizações do laboratório não devem sobrescrever exercícios já resolvidos por você. [Guia da escola](docs/GUIA_ESCOLA.md) e [trilha completa](docs/TRILHA.md).
+
+## O que a revisão acrescentou
+
+- Escrita de código: métricas à mão, logística em NumPy, contratos, divisão temporal, SQL com CTE e janela, MERGE idempotente, watermark e citações.
+- Caso público real: amostra rastreável do UCI Online Retail; Bronze, Silver, quarentena e Gold com moeda preservada e reconciliação.
+- ML: validação temporal com gap, calibração com conjuntos separados, custo de decisão, instabilidade da seleção e monitoramento com ação.
+- Engenharia: CDC, histórico SCD tipo 2, exclusão e reinserção, eventos atrasados e replay de checkpoint.
+- IA: comparação lexical/semântica no mesmo benchmark, resposta extrativa com citações e avaliação exploratória de um gerador local.
+- Estudo contínuo: reflexões por aula, feedback importável, catálogo extensível e modelo de relato para portfólio.
+
+Os sete exercícios e as melhorias corretas da versão 2.1 foram preservados. A [análise técnica](docs/ANALISE_V2_1.md) descreve o que mudou e o que continua pendente. Veja também [diferenças em relação ao e-book](docs/MUDANCAS_EM_RELACAO_AO_EBOOK.md).
+
+## Resultados que merecem ser estudados
+
+**Dados reais:** 3.000 linhas = 2.946 válidas + 10 rejeitadas + 44 duplicatas substituídas. A Gold registra GBP 56.820,33 de receita líquida, após estornos. A amostra corresponde a um dia; serve para engenharia e BI, não para validar previsão temporal. [Proveniência e contrato](docs/DADOS_REAIS.md).
+
+**Instabilidade:** em 30 conjuntos sintéticos, C=0,1 venceu 17 vezes e C=1 venceu 13. O limiar mediano foi 0,15; o limiar teórico 5/35 só se aplica com probabilidades calibradas e as hipóteses de custo declaradas. Ganho médio de R$ 385 sobre nunca alertar, IC bootstrap [R$ 336,50; R$ 437,00], restrito ao gerador sintético. Na previsão de vendas, o modelo também enfrenta ontem, semana passada e média do treino; o app avisa quando não ganha da média.
+
+![Instabilidade em dados sintéticos](assets/estabilidade.png)
+
+**Busca:** 30 paráfrases e seis perguntas fora do escopo, corpus original de 35 aulas congelado antes de ampliar a escola.
+
+| Método | Recall@1 | Recall@3 | MRR@5 |
+|---|---:|---:|---:|
+| TF-IDF | 46,7% | 73,3% | 0,602 |
+| Encoder multilíngue local | 40,0% | 63,3% | 0,529 |
+
+O encoder perdeu em recuperação neste recorte. Mudanças de chunking e limiares impedem atribuir tudo ao modelo. A abstenção também troca cobertura por precisão. [Protocolo e reprodução](docs/BUSCA_SEMANTICA.md).
+
+![Comparação de recuperação](assets/busca.png)
+
+**Geração local:** sete casos foram realmente executados com Qwen2.5-0.5B e llama.cpp. Todos os sete outputs falharam no contrato e viraram abstenção; nenhuma resposta útil foi aceita. Isso é um resultado negativo registrado, não um RAG pronto para uso. O app oferece a resposta extrativa; a geração é uma experiência opcional. [Avaliação e limites](docs/RAG_LOCAL.md).
+
+## O que foi validado
+
+- 169 testes de manutenção aprovados, incluindo abertura das 23 páginas e verificação dos exercícios.
+- 64 testes de aluno: referências passam; esqueletos vazios não aprovam.
+- Sete cenários Spark 4.0.1 executados localmente, incluindo Gold público e streaming com replay.
+- 69 pacotes fixados consultados no OSV, sem advisories retornados na consulta registrada.
+- Pares de notebooks coerentes com os módulos, links locais, catálogo, hashes, limites de entrada e busca limitada de padrões de segredo.
+
+**Execução em uma conta Databricks continua pendente.** Spark local não valida Delta, Unity Catalog, Jobs, MLflow, Auto Loader ou permissões de workspace. Os 17 notebooks têm registro próprio para data, versão, run ID/link e falhas. [Relatório](docs/RELATORIO_VALIDACAO.md) e [registro nativo](docs/REGISTRO_EXECUCAO_DATABRICKS.md).
+
+O checklist de segurança solicitado está mapeado em [21 temas](docs/AUDITORIA_SEGURANCA.md), com controles locais e pendências de hospedagem identificadas. Não é certificação de segurança.
+
+## Evoluir sem perder o aprendizado
+
+Use [CONTRIBUTING](CONTRIBUTING.md), [roadmap](docs/ROADMAP.md) e o [prompt de continuidade](docs/PROMPT_MELHORIAS.md). Aulas são Markdown com metadados; catálogo, trilha e questões são verificáveis. Não altere perguntas congeladas para aumentar métricas. Acrescente um novo protocolo quando fizer outro experimento.
+
+Escreva seu próprio relato com [este modelo](docs/ESTUDO_CASO_TEMPLATE.md). Explique o que você tentou, qual baseline ganhou, o erro que encontrou e o que mudou. Este repositório fornece experiências; a evidência do seu aprendizado vem da execução e da sua explicação.
+
+## Verificação e entrega
 
 ```bash
+python scripts/build_school_notebooks.py
 python scripts/export_notebooks.py
 python scripts/verify_project.py
 python -m pytest
 python scripts/audit_dependencies.py
-python scripts/package_project.py ../lab-bricks-v2.0.zip
+python scripts/package_project.py ../lab-bricks-v3.0.zip
 ```
 
-O ZIP seleciona fontes explicitamente e exclui Git, ambientes, caches, logs, progresso pessoal e referências PDF. Os notebooks são exportados sem saídas. A CI repete validação, testes e auditoria; não contém credenciais nem faz deploy na sua conta.
+[GitHub e atualização segura](docs/COMO_SUBIR_GITHUB.md). O pacote exclui ambientes, caches, modelos, outputs pessoais, segredos, livros anexados e arquivos temporários.
 
-O [checklist de segurança NotKode](docs/AUDITORIA_SEGURANCA.md) foi aplicado ao escopo local. Acesso real, permissões, rate limits e políticas da hospedagem permanecem verificações do ambiente concreto.
-
-## Referências e licença
-
-Os seis materiais novos enriqueceram os temas com conteúdo original. **Os livros/PDFs, suas imagens e questões de exame não são redistribuídos.** Leia [fontes e atualizações](docs/FONTES.md), [mudanças em relação ao e-book](docs/MUDANCAS_EM_RELACAO_AO_EBOOK.md) e o [roadmap](docs/ROADMAP.md).
-
-Código e materiais próprios: [MIT](LICENSE). Databricks e marcas de terceiros pertencem aos respectivos titulares. Lab Bricks é um projeto educacional independente de Bruno Nunes.
+Código e conteúdo próprios: MIT. A amostra pública mantém atribuição **CC BY 4.0** em [data/LICENSES.md](data/LICENSES.md). Os livros enriqueceram os temas; não são reproduzidos ou redistribuídos. Projeto independente, sem vínculo oficial com Databricks.

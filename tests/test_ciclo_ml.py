@@ -3,7 +3,7 @@ import pandas as pd
 import pytest
 
 from lab.classificacao import gerar_entregas, FEATURES
-from lab.ciclo_ml import COLUNAS_ENTRADA, juntar_no_instante, validar_entrada, dividir_por_datas, avaliar_ciclo
+from lab.ciclo_ml import NUMERICAS, COLUNAS_ENTRADA, juntar_no_instante, validar_entrada, dividir_por_datas, avaliar_ciclo
 
 
 def casos_temporais():
@@ -72,4 +72,22 @@ def test_selecao_nao_usa_rotulos_do_teste_e_pipeline_nao_aprende_validacao():
     assert selected["tp"] + selected["tn"] + selected["fp"] + selected["fn"] == 120
     if hasattr(model, "named_steps"):
         train, _, _ = dividir_por_datas(frame)
-        np.testing.assert_allclose(model.named_steps["standardscaler"].mean_, train[FEATURES].mean())
+        scaler = model.named_steps["columntransformer"].named_transformers_["num"]
+        np.testing.assert_allclose(scaler.mean_, train[NUMERICAS].mean())
+
+
+def test_dia_da_semana_e_categoria_e_nao_numero_ordenado():
+    """Trocar o rótulo numérico dos dias por uma permutação não pode mudar as previsões."""
+    frame = gerar_entregas()
+    model, _, selected, scored = avaliar_ciclo(frame)
+    train, _, test = dividir_por_datas(frame)
+    if not hasattr(model, "named_steps"):
+        return
+    permutacao = {d: (d * 3 + 2) % 7 for d in range(7)}  # bijeção sobre 0..6
+    trocado = test[COLUNAS_ENTRADA].copy()
+    trocado["dia_semana"] = trocado.dia_semana.map(permutacao)
+    base = model.predict_proba(validar_entrada(test[COLUNAS_ENTRADA]))[:, 1]
+    outra = model.predict_proba(validar_entrada(trocado))[:, 1]
+    assert not np.allclose(base, outra), "O modelo ainda parece tratar dia_semana como número ordenado."
+    encoder = model.named_steps["columntransformer"].named_transformers_["dia"]
+    assert encoder.categories_[0].tolist() == list(range(7))

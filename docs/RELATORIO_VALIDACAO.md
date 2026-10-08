@@ -1,26 +1,32 @@
-# Evidências da versão 2.0
+# Relatório de validação - Lab Bricks 3.0
 
-**Data:** 7 de outubro de 2026. **Ambiente local:** Python 3.12, dependências do lock, PySpark 4.0.1 opcional.
+## Escopo observado em 8 de outubro de 2026
 
-| Verificação executada | Resultado | Limite |
+A versão 2.1 recebida passou em 120 testes antes da expansão. A escola foi validada em Python 3.12.14 com os 52 pacotes do requirements.lock. A repetição após recuperação e correções finais terminou com **169 passed in 30.75s**. O conjunto final tem **169 testes de manutenção**; inclui abertura das **23 páginas** por Streamlit AppTest. Os **14 exercícios** têm **64 verificações de aluno**: todas as referências passam, e esqueletos temporários vazios não aprovam. A verificação não sobrescreve arquivos do estudante.
+
+Comandos: build_school_notebooks.py, export_notebooks.py, verify_project.py e python -m pytest. O verificador confere sintaxe, links, 17 pares de notebooks sem outputs, cópias dos módulos, escola, perguntas congeladas, cache de vetores e dados sintéticos.
+
+## Experimentos executados
+
+| Experiência | Resultado | Limite |
 |---|---|---|
-| pytest | 105 testes aprovados | Funções locais e Streamlit AppTest |
-| AppTest | 13 páginas sem exceção; editor lê e bloqueia escrita | Não simula toda infraestrutura de hospedagem |
-| Verificador do projeto | Sintaxe, links locais, catálogo, pares, CSV e padrões de segredo aprovados | Busca limitada de segredo |
-| Spark local | Cinco cenários: pipeline padrão/invertido/nulos, JSON e BI com janela | Sem Delta, UC ou serviços remotos |
-| OSV | 54 pacotes consultados; nenhum advisory retornado | Base e momento da consulta |
-| Notebook 11 · parte sem Tracking | Quatro células de código executadas localmente; asserts aprovados | Sem Feature Store, registry ou endpoint |
-| Exportação notebooks | Doze pares sem saídas | Exportar não executa no Databricks |
+| Online Retail | 3.000 = 2.946 + 10 + 44; Gold 5.682.033 pence | Um dia, sem previsão real |
+| Estabilidade | 30 sementes; vitórias 17/13; ganho 385, IC [336,50; 437,00] | Gerador sintético |
+| Busca | TF-IDF R@1 46,7%; encoder 40,0% | Corpus congelado 35 aulas; chunking confunde comparação |
+| Geração local | 7 rejeições de contrato, 7 abstenções, 0 úteis | Revisão factual pendente |
+| Spark 4.0.1 / Java 17 | Sete cenários aprovados | Sem Delta ou conta Databricks |
+| OSV | 69 pacotes fixados, sem advisories retornados | Consulta datada, não garantia futura |
 
-A CI no GitHub repete a validação local e OSV. Seu estado final pode ser conferido na aba Actions do repositório. Não incluímos um estado de CI futuro como resultado prévio.
+Spark exerceu três casos de pipeline, JSON, BI com janela, Gold público e streaming com replay de checkpoint. Uma tentativa inicial de transferência da Gold via PythonRDD falhou no worker; transferência Arrow corrigiu o caminho local e os sete cenários passaram. Isso não valida a execução dos notebooks inteiros nem serviços cloud.
 
-## Resultados de referência
+A consulta OSV está registrada em DEPENDENCIAS_OSV.json e cobre locks de núcleo, Spark e semântica. O engine nativo e os pesos do LLM não são pacotes PyPI e não foram cobertos pelo OSV.
 
-- Primeiro caso: 727 Bronze = 720 Silver + seis rejeitados + uma versão substituída.
-- BI: 180 pedidos totais, 164 concluídos; linhas de itens e unidades são grãos distintos. SQL/Pandas/Spark reconciliam métricas e última receita acumulada.
-- JSON: quatro mensagens, duas rejeitadas, três itens válidos; receita dos itens = 17.600 centavos.
-- Classificação: 480 entregas em treino e 120 em teste, sem sobreposição de datas; duração real excluída das features.
-- Ciclo ML: 360/120/120 em treino/validação/teste; 51 políticas comparadas na validação; lookup temporal preserva ausência e contrato rejeita entradas incompatíveis.
-- Progresso: round-trip JSON restrito sem identidade pessoal.
+## Segurança e empacotamento
 
-Confira [pendências de conta](VALIDACAO_DATABRICKS.md) e [segurança](AUDITORIA_SEGURANCA.md).
+SQL usa authorizer real do SQLite e orçamento. Caderno/feedback têm JSON com esquema e limite de 100 KB. Cache de vetores não permite pickle. Código de aluno só é executado pelo comando local explícito. Artefatos pessoais, ambientes, pesos, livros, segredos e temporários ficam fora do ZIP.
+
+Busca de padrões de segredo é limitada. Controles de conta, hospedagem e identidade continuam pendentes na auditoria. GitHub Actions deve ser conferido no commit publicado; resultados locais não implicam execução da CI.
+
+## Databricks
+
+Nenhum dos 17 notebooks foi executado em uma conta Databricks nesta revisão. [Registro](REGISTRO_EXECUCAO_DATABRICKS.md) permanece pendente. Preencha versões, resultado, run ID/link e falhas somente após execução real.

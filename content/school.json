@@ -1,0 +1,164 @@
+{
+  "format": "lab-bricks-escola",
+  "version": 1,
+  "etapas": [
+    {
+      "numero": 1,
+      "titulo": "Comece pelo grão",
+      "aulas": [
+        "f01-mapa",
+        "f02-grao",
+        "f03-python",
+        "f04-contrato",
+        "f05-reprodutibilidade",
+        "f06-estudo-com-evidencias"
+      ],
+      "exercicios": [
+        "ex01_grao"
+      ],
+      "entrega": "Código, feedback e explicação do grão.",
+      "reflexao": "Qual hipótese falhou? Que resultado prova sua correção?"
+    },
+    {
+      "numero": 2,
+      "titulo": "Escreva consultas",
+      "aulas": [
+        "s01-agregacoes",
+        "s02-joins",
+        "s03-janelas",
+        "s06-sql-missoes"
+      ],
+      "exercicios": [
+        "ex02_join",
+        "ex11_janela_sql"
+      ],
+      "entrega": "Três missões SQL aprovadas e JOIN explicado.",
+      "reflexao": "Qual hipótese falhou? Que resultado prova sua correção?"
+    },
+    {
+      "numero": 3,
+      "titulo": "Construa o pipeline",
+      "aulas": [
+        "e01-medallion",
+        "e02-delta",
+        "e03-incremental",
+        "e04-json-streaming",
+        "e05-declarativo"
+      ],
+      "exercicios": [],
+      "entrega": "Bronze/Silver/Gold reconciliadas e replay sem duplicação.",
+      "reflexao": "Qual hipótese falhou? Que resultado prova sua correção?"
+    },
+    {
+      "numero": 4,
+      "titulo": "Investigue dados públicos",
+      "aulas": [
+        "e06-dados-reais",
+        "s04-dashboard",
+        "s05-desempenho"
+      ],
+      "exercicios": [
+        "ex08_retail"
+      ],
+      "entrega": "Proveniência, quarentena e primeiro estudo de caso.",
+      "reflexao": "Qual hipótese falhou? Que resultado prova sua correção?"
+    },
+    {
+      "numero": 5,
+      "titulo": "Implemente fundamentos de ML",
+      "aulas": [
+        "m01-baseline",
+        "m02-temporal",
+        "m03-classificacao",
+        "m04-mlops"
+      ],
+      "exercicios": [
+        "ex03_metricas",
+        "ex04_logistica",
+        "ex05_temporal"
+      ],
+      "entrega": "Métricas e gradiente à mão; comparação com biblioteca.",
+      "reflexao": "Qual hipótese falhou? Que resultado prova sua correção?"
+    },
+    {
+      "numero": 6,
+      "titulo": "Preserve o futuro",
+      "aulas": [
+        "m06-features-temporais",
+        "m07-selecao-validacao",
+        "m08-contrato-inferencia",
+        "m10-validacao-temporal"
+      ],
+      "exercicios": [
+        "ex09_janelas"
+      ],
+      "entrega": "Janelas com gap e escolha invariável aos rótulos finais.",
+      "reflexao": "Qual hipótese falhou? Que resultado prova sua correção?"
+    },
+    {
+      "numero": 7,
+      "titulo": "Decida com incerteza",
+      "aulas": [
+        "m09-instabilidade-selecao",
+        "m11-calibracao",
+        "m05-drift",
+        "m12-monitoramento-decisoes"
+      ],
+      "exercicios": [
+        "ex06_limiar",
+        "ex10_calibracao"
+      ],
+      "entrega": "Histograma, intervalo de ganho e política de monitoramento.",
+      "reflexao": "Qual hipótese falhou? Que resultado prova sua correção?"
+    },
+    {
+      "numero": 8,
+      "titulo": "Meça a recuperação",
+      "aulas": [
+        "i01-llms",
+        "i02-busca",
+        "i03-rag",
+        "i04-avaliacao",
+        "i06-benchmark-parafraseado",
+        "i07-busca-semantica"
+      ],
+      "exercicios": [
+        "ex07_recuperacao"
+      ],
+      "entrega": "Benchmark congelado com falhas e cobertura explicadas.",
+      "reflexao": "Qual hipótese falhou? Que resultado prova sua correção?"
+    },
+    {
+      "numero": 9,
+      "titulo": "Avalie a resposta",
+      "aulas": [
+        "i05-valor",
+        "i08-rag-avaliado"
+      ],
+      "exercicios": [
+        "ex14_citacoes"
+      ],
+      "entrega": "Revisão factual, citações e decisão de utilidade.",
+      "reflexao": "Qual hipótese falhou? Que resultado prova sua correção?"
+    },
+    {
+      "numero": 10,
+      "titulo": "Opere e preserve a história",
+      "aulas": [
+        "g01-acesso",
+        "g02-jobs",
+        "g03-entrega",
+        "g04-observabilidade",
+        "g05-evolucao",
+        "e07-cdc-scd2",
+        "e08-watermark"
+      ],
+      "exercicios": [
+        "ex12_merge",
+        "ex13_watermark"
+      ],
+      "entrega": "Histórico, replay, atrasos e registro real de Databricks quando disponível.",
+      "reflexao": "Qual hipótese falhou? Que resultado prova sua correção?"
+    }
+  ]
+}

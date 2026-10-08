@@ -28,7 +28,7 @@ LAVA, NAVY, OAT, LIGHT = '#FF3621', '#0B2026', '#EEEDE9', '#F9F7F4'
 <text x="91" y="64" font-family="Arial,sans-serif" font-size="47" font-weight="700" letter-spacing="-2" fill="#0B2026">Lab Bricks</text></svg>''')
 
 (ASSETS/'capa.svg').write_text('''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 610" role="img" aria-labelledby="t d">
-<title id="t">Lab Bricks: seu laboratório de dados</title><desc id="d">Seis trilhas de estudo: fundamentos, SQL e BI, engenharia, ML, IA e governança. Trinta e três aulas, doze notebooks e três projetos próprios.</desc>
+<title id="t">Lab Bricks: seu laboratório de dados</title><desc id="d">Seis trilhas de estudo: fundamentos, SQL e BI, engenharia, ML, IA e governança. Quarenta e cinco aulas, dez etapas e quatorze exercícios próprios.</desc>
 <rect width="1440" height="610" rx="26" fill="#0B2026"/>
 <g stroke="#27424A" stroke-width="1" opacity=".65"><path d="M855 0V610M1010 0V610M1165 0V610M1320 0V610M800 110H1440M800 265H1440M800 420H1440M800 575H1440"/></g>
 <g font-family="Arial,sans-serif">
@@ -40,8 +40,8 @@ LAVA, NAVY, OAT, LIGHT = '#FF3621', '#0B2026', '#EEEDE9', '#F9F7F4'
 <text x="64" y="315" fill="#FF3621" font-size="28" font-weight="700">Do fundamento à evidência.</text>
 <text x="64" y="374" fill="#EEEDE9" font-size="24">Um laboratório forte para aprender Databricks.</text>
 <text x="64" y="412" fill="#EEEDE9" font-size="22">Conteúdo próprio. Prática guiada. Espaço para evoluir.</text>
-<text x="64" y="500" fill="#FFFFFF" font-size="22" font-weight="700">33 aulas · 12 notebooks · 3 projetos</text>
-<text x="64" y="552" fill="#EEEDE9" font-size="15" letter-spacing="1">BRUNO NUNES · PORTUGUÊS · DADOS FICTÍCIOS · v2.0</text>
+<text x="64" y="500" fill="#FFFFFF" font-size="22" font-weight="700">45 aulas · 17 notebooks · 14 exercícios · 3 projetos</text>
+<text x="64" y="552" fill="#EEEDE9" font-size="15" letter-spacing="1">BRUNO NUNES · PORTUGUÊS · DADOS SINTÉTICOS E PÚBLICOS · v3.0</text>
 <g transform="translate(875 105)"><rect width="220" height="130" rx="16" fill="#F9F7F4"/>
 <text x="22" y="40" fill="#FF3621" font-size="15" font-weight="700">01 / 02</text><text x="22" y="80" fill="#0B2026" font-size="25" font-weight="700">Fundamentos</text><text x="22" y="112" fill="#0B2026" font-size="21">SQL e BI</text></g>
 <g transform="translate(1120 180)"><rect width="220" height="130" rx="16" fill="#FF3621"/>
@@ -79,7 +79,7 @@ predictions, info=comparar(tratar(rows).gold)
 plt.rcParams.update({'font.family':'DejaVu Sans','font.size':12,'text.color':NAVY,'axes.labelcolor':NAVY,'xtick.color':NAVY,'ytick.color':NAVY})
 fig,ax=plt.subplots(figsize=(13,6.2),facecolor=LIGHT)
 ax.set_facecolor(LIGHT)
-for column,label,color,style in [('real','Receita observada',NAVY,'-'),('baseline','Baseline: ontem','#9B978F','--'),('modelo','Modelo Ridge',LAVA,'-')]:
+for column,label,color,style in [('real','Receita observada',NAVY,'-'),('baseline','Baseline: ontem','#9B978F','--'),('baseline_semanal','Baseline: semana passada','#C9A227','--'),('baseline_media','Baseline: média do treino','#2E8B8B',':'),('modelo','Modelo Ridge',LAVA,'-')]:
     ax.plot(predictions.index,predictions[column],label=label,color=color,linewidth=2.3,linestyle=style,marker='o',markersize=4)
 ax.grid(axis='y',color='#D5D4CF',alpha=.8)
 for spine in ax.spines.values():spine.set_visible(False)
@@ -87,9 +87,9 @@ ax.yaxis.set_major_formatter(FuncFormatter(lambda x,pos:f'{x:,.0f}'.replace(',',
 ax.xaxis.set_major_formatter(mdates.DateFormatter('%d/%m'))
 ax.set_ylabel('Receita fictícia (R$)',labelpad=14)
 ax.set_xlabel('Março de 2026 · previsão de um dia à frente',labelpad=12)
-ax.legend(loc='upper left',bbox_to_anchor=(0,1.18),ncol=3,frameon=False)
+ax.legend(loc='upper left',bbox_to_anchor=(0,1.18),ncol=3,frameon=False,fontsize=10)
 fig.text(.075,.94,'Toda melhoria precisa enfrentar uma baseline.',fontsize=23,fontweight='bold')
-fig.text(.075,.885,f"MAE baseline: R$ {info['mae_baseline']:.2f} | MAE Ridge: R$ {info['mae_modelo']:.2f} | 14 dias de teste",fontsize=12,parse_math=False)
+fig.text(.075,.885,f"MAE ontem: R$ {info['mae_baseline']:.2f} | MAE semana passada: R$ {info['mae_baseline_semanal']:.2f} | MAE média: R$ {info['mae_baseline_media']:.2f} | MAE Ridge: R$ {info['mae_modelo']:.2f} | 14 dias de teste",fontsize=11,parse_math=False)
 fig.subplots_adjust(left=.09,right=.97,top=.72,bottom=.17)
 fig.savefig(ASSETS/'experimento.png',dpi=150,facecolor=LIGHT)
 plt.close(fig)

@@ -17,12 +17,12 @@
   "machine-learning": {
     "title": "04 · Machine learning e MLOps",
     "description": "Baselines, validação temporal, decisões e ciclo de modelos.",
-    "hours": "14–20 horas"
+    "hours": "16–22 horas"
   },
   "ia-recuperacao": {
     "title": "05 · IA, LLMs e recuperação",
     "description": "Contexto, evidências, avaliação e revisão humana.",
-    "hours": "8–12 horas"
+    "hours": "9–14 horas"
   },
   "governanca": {
     "title": "06 · Governança e operação",

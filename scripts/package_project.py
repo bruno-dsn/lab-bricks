@@ -7,12 +7,12 @@ import zipfile
 from verify_project import ROOT, verify
 
 ROOT_FILES = {
-    "README.md", "LICENSE", "CONTRIBUTING.md", "SECURITY.md", "app.py",
+    "README.md", "CHANGELOG.md", "LICENSE", "CONTRIBUTING.md", "SECURITY.md", "app.py",
     ".gitignore", "pyproject.toml", "requirements.txt", "requirements-dev.txt",
-    "requirements.lock", "requirements-spark.txt", "databricks.yml",
+    "requirements.lock", "requirements-spark.txt", "requirements-semantica.txt", "requirements-rag.txt", "PROMPT_MELHORIAS.md", "databricks.yml",
 }
-FOLDERS = {".github", ".streamlit", "assets", "data", "docs", "notebooks", "scripts", "src", "tests", "content", "templates", "resources", "pipelines"}
-EXTENSIONS = {".py", ".md", ".txt", ".toml", ".yml", ".json", ".ipynb", ".csv", ".svg", ".png"}
+FOLDERS = {".github", ".streamlit", ".vscode", "assets", "data", "docs", "notebooks", "scripts", "src", "tests", "content", "templates", "resources", "pipelines", "exercicios", "solucoes"}
+EXTENSIONS = {".py", ".md", ".txt", ".toml", ".yml", ".json", ".ipynb", ".csv", ".svg", ".png", ".npz"}
 SKIP_PARTS = {".git", ".venv", "__pycache__", ".pytest_cache", ".ipynb_checkpoints", "build", "dist", "mlruns", "mlartifacts"}
 
 

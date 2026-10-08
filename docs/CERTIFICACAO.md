@@ -2,7 +2,7 @@
 
 Referência: [página oficial](https://www.databricks.com/learn/certification/data-engineer-associate) e guia vigente desde **4 de maio de 2026**, conferidos em 7 de outubro de 2026. O livro de engenharia fornecido aborda uma versão anterior da prova; suas questões e respostas não foram reproduzidas.
 
-O Lab Bricks ajuda a estudar temas da plataforma, mas **não é preparação integral garantida nem oferece aprovação oficial**. As 39 questões são próprias e conceituais. Confira novamente o guia antes de agendar uma prova.
+O Lab Bricks ajuda a estudar temas da plataforma, mas **não é preparação integral garantida nem oferece aprovação oficial**. As 43 questões são próprias e conceituais. Confira novamente o guia antes de agendar uma prova.
 
 | Domínio oficial | Peso | Material relacionado | Cobertura e lacunas |
 |---|---:|---|---|

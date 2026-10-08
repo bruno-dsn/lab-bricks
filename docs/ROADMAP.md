@@ -1,16 +1,10 @@
-# Próximos aprofundamentos
+# Próximos passos - depois da escola 3.0
 
-A versão 2.0 já entrega aulas, experiências locais, notebooks e estrutura de atualização. Estes itens são extensões propostas, não recursos concluídos:
+1. **Executar no Databricks.** Registrar todos os 17 notebooks, versões, run IDs e falhas reais; corrigir e rever evidências.
+2. **Concluir um caso pessoal.** Resolver exercícios, construir um dos projetos e escrever uma explicação própria com commit e resultados.
+3. **ML com dados reais temporais.** Escolher dados licenciados com janela suficiente; separar desenvolvimento/teste antes de explorar; baselines e hipótese congeladas.
+4. **Isolar busca semântica.** Mesmo chunking e novo conjunto independente; calibrar abstenção em validação separada e reportar perdas.
+5. **Geração útil com suporte factual.** Novo experimento congelado, contrato e revisão humana por afirmação; custo e segurança separados.
+6. **Exercícios por necessidade.** Acrescentar só quando houver uma dificuldade de estudo concreta e um resultado verificável.
 
-| Extensão | Pré-requisito | Critério de conclusão |
-|---|---|---|
-| Executar todos os recursos na conta de estudo | Conta e privilégios | Preencher registro com run IDs, versões e falhas |
-| SCD tipo 2 e CDC | Chave de evento e histórico | JOIN temporal e reprocessamento testados |
-| Pipeline streaming com late events/watermark | Fonte e estado próprios | Protocolo de atraso, reinício e destino idempotente |
-| Feature Engineering point-in-time | Features e UC autorizados | Ausência de vazamento e reprodução temporal |
-| Registro/serving de modelos | Identidade e ambiente | Assinatura, monitoramento e rollback real |
-| Busca semântica e geração RAG | Modelo/índice e acesso | Benchmark congelado, citações, abstenção e custos |
-| Integrações JDBC/Connect e ingestão externa | Fonte autorizada | Schema, segredos, limites e reconciliação |
-| Serviço hospedado com dados privados | Autenticação e infraestrutura | Testes de autorização, TLS/headers e rate limits |
-
-Revisar fontes e APIs a cada atualização relevante. Cada extensão deve trazer aula original, fixture, critérios e evidência. A prioridade é fechar lacunas de execução antes de chamar o projeto de pronto para produção.
+A escola já inclui a amostra pública, gap temporal, calibração, cache semântico medido, CDC/SCD2, watermark e 14 exercícios. Não reapresente esses itens como ausentes. Nenhum aumento de contagem substitui executar e explicar.

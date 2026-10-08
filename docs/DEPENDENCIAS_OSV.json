@@ -1,5 +1,285 @@
 {
-  "data_consulta": "2026-10-07",
-  "consultados": 54,
-  "achados": []
+  "consultado_em_utc": "2026-10-08T04:06:51.640624+00:00",
+  "fonte": "https://api.osv.dev/v1/querybatch",
+  "consultados": 69,
+  "pacotes": [
+    {
+      "nome": "Jinja2",
+      "versao": "3.1.6"
+    },
+    {
+      "nome": "MarkupSafe",
+      "versao": "3.0.4"
+    },
+    {
+      "nome": "PyYAML",
+      "versao": "6.0.3"
+    },
+    {
+      "nome": "Pygments",
+      "versao": "2.21.0"
+    },
+    {
+      "nome": "altair",
+      "versao": "6.3.0"
+    },
+    {
+      "nome": "anyio",
+      "versao": "4.15.1"
+    },
+    {
+      "nome": "attrs",
+      "versao": "26.1.0"
+    },
+    {
+      "nome": "certifi",
+      "versao": "2026.7.22"
+    },
+    {
+      "nome": "charset-normalizer",
+      "versao": "3.4.4"
+    },
+    {
+      "nome": "click",
+      "versao": "8.5.0"
+    },
+    {
+      "nome": "coloredlogs",
+      "versao": "15.0.1"
+    },
+    {
+      "nome": "contourpy",
+      "versao": "1.3.3"
+    },
+    {
+      "nome": "cycler",
+      "versao": "0.12.1"
+    },
+    {
+      "nome": "filelock",
+      "versao": "4.0.12"
+    },
+    {
+      "nome": "flatbuffers",
+      "versao": "25.12.19"
+    },
+    {
+      "nome": "fonttools",
+      "versao": "4.61.1"
+    },
+    {
+      "nome": "fsspec",
+      "versao": "2026.9.0"
+    },
+    {
+      "nome": "h11",
+      "versao": "0.16.0"
+    },
+    {
+      "nome": "hf-xet",
+      "versao": "1.7.0"
+    },
+    {
+      "nome": "httpcore",
+      "versao": "1.0.9"
+    },
+    {
+      "nome": "httptools",
+      "versao": "0.8.0"
+    },
+    {
+      "nome": "httpx",
+      "versao": "0.28.1"
+    },
+    {
+      "nome": "huggingface_hub",
+      "versao": "1.33.0"
+    },
+    {
+      "nome": "humanfriendly",
+      "versao": "10.0"
+    },
+    {
+      "nome": "idna",
+      "versao": "3.19"
+    },
+    {
+      "nome": "iniconfig",
+      "versao": "2.3.0"
+    },
+    {
+      "nome": "itsdangerous",
+      "versao": "2.2.0"
+    },
+    {
+      "nome": "joblib",
+      "versao": "1.5.3"
+    },
+    {
+      "nome": "jsonschema",
+      "versao": "4.26.0"
+    },
+    {
+      "nome": "jsonschema-specifications",
+      "versao": "2025.9.1"
+    },
+    {
+      "nome": "kiwisolver",
+      "versao": "1.4.9"
+    },
+    {
+      "nome": "matplotlib",
+      "versao": "3.10.8"
+    },
+    {
+      "nome": "mpmath",
+      "versao": "1.3.0"
+    },
+    {
+      "nome": "narwhals",
+      "versao": "2.26.0"
+    },
+    {
+      "nome": "numpy",
+      "versao": "2.3.5"
+    },
+    {
+      "nome": "onnxruntime",
+      "versao": "1.23.2"
+    },
+    {
+      "nome": "packaging",
+      "versao": "26.3"
+    },
+    {
+      "nome": "pandas",
+      "versao": "2.2.3"
+    },
+    {
+      "nome": "pillow",
+      "versao": "12.3.0"
+    },
+    {
+      "nome": "pluggy",
+      "versao": "1.6.0"
+    },
+    {
+      "nome": "protobuf",
+      "versao": "7.36.2"
+    },
+    {
+      "nome": "py4j",
+      "versao": "0.10.9.9"
+    },
+    {
+      "nome": "pyarrow",
+      "versao": "25.0.1"
+    },
+    {
+      "nome": "pydeck",
+      "versao": "0.9.3"
+    },
+    {
+      "nome": "pyparsing",
+      "versao": "3.3.2"
+    },
+    {
+      "nome": "pyspark",
+      "versao": "4.0.1"
+    },
+    {
+      "nome": "pytest",
+      "versao": "9.1.1"
+    },
+    {
+      "nome": "python-dateutil",
+      "versao": "2.9.0.post0"
+    },
+    {
+      "nome": "python-multipart",
+      "versao": "0.0.32"
+    },
+    {
+      "nome": "pytz",
+      "versao": "2026.3.post1"
+    },
+    {
+      "nome": "referencing",
+      "versao": "0.37.0"
+    },
+    {
+      "nome": "requests",
+      "versao": "2.34.2"
+    },
+    {
+      "nome": "rpds-py",
+      "versao": "2026.9.1"
+    },
+    {
+      "nome": "scikit-learn",
+      "versao": "1.8.0"
+    },
+    {
+      "nome": "scipy",
+      "versao": "1.17.0"
+    },
+    {
+      "nome": "six",
+      "versao": "1.17.0"
+    },
+    {
+      "nome": "starlette",
+      "versao": "1.7.0"
+    },
+    {
+      "nome": "streamlit",
+      "versao": "1.65.0"
+    },
+    {
+      "nome": "sympy",
+      "versao": "1.14.0"
+    },
+    {
+      "nome": "threadpoolctl",
+      "versao": "3.6.0"
+    },
+    {
+      "nome": "tokenizers",
+      "versao": "0.22.2"
+    },
+    {
+      "nome": "toml",
+      "versao": "0.10.2"
+    },
+    {
+      "nome": "tqdm",
+      "versao": "4.70.1"
+    },
+    {
+      "nome": "typing_extensions",
+      "versao": "4.16.0"
+    },
+    {
+      "nome": "tzdata",
+      "versao": "2026.4"
+    },
+    {
+      "nome": "urllib3",
+      "versao": "2.8.0"
+    },
+    {
+      "nome": "uvicorn",
+      "versao": "0.54.0"
+    },
+    {
+      "nome": "watchdog",
+      "versao": "6.0.0"
+    },
+    {
+      "nome": "websockets",
+      "versao": "16.0"
+    }
+  ],
+  "achados": [],
+  "limite": "Pacotes PyPI; executável nativo e modelos não são cobertos por esta consulta."
 }

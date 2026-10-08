@@ -1,0 +1,122 @@
+[
+  {
+    "query": "meu dashboard mostra o dobro do faturamento depois de juntar tabelas",
+    "expected": "s02-joins"
+  },
+  {
+    "query": "como evitar que o modelo veja o futuro durante o treino",
+    "expected": "m02-temporal"
+  },
+  {
+    "query": "rodar o mesmo arquivo duas vezes sem duplicar linhas",
+    "expected": "e03-incremental"
+  },
+  {
+    "query": "quem pode ler minhas tabelas",
+    "expected": "g01-acesso"
+  },
+  {
+    "query": "como saber se os dados mudaram depois que o modelo foi publicado",
+    "expected": "m05-drift"
+  },
+  {
+    "query": "o que fazer quando o modelo de linguagem inventa fatos",
+    "expected": "i03-rag"
+  },
+  {
+    "query": "qual a diferença entre pedido, item e quantidade",
+    "expected": "f02-grao"
+  },
+  {
+    "query": "como escolher o ponto de corte de um alerta quando errar custa caro",
+    "expected": "m03-classificacao"
+  },
+  {
+    "query": "por que dividir os dados em três partes e não em duas",
+    "expected": "m07-selecao-validacao"
+  },
+  {
+    "query": "quero rejeitar entradas estranhas antes de prever",
+    "expected": "m08-contrato-inferencia"
+  },
+  {
+    "query": "comparar o modelo com algo simples antes de celebrar",
+    "expected": "m01-baseline"
+  },
+  {
+    "query": "juntar histórico de cliente sem usar informação que ainda não existia",
+    "expected": "m06-features-temporais"
+  },
+  {
+    "query": "ler arquivos JSON que chegam continuamente numa pasta",
+    "expected": "e04-json-streaming"
+  },
+  {
+    "query": "guardar dados brutos, limpos e prontos para relatório em camadas",
+    "expected": "e01-medallion"
+  },
+  {
+    "query": "voltar a uma versão anterior de uma tabela",
+    "expected": "e02-delta"
+  },
+  {
+    "query": "regras automáticas que derrubam a pipeline se os dados vierem ruins",
+    "expected": "e05-declarativo"
+  },
+  {
+    "query": "ranking acumulado por dia sem perder as linhas",
+    "expected": "s03-janelas"
+  },
+  {
+    "query": "a consulta ficou lenta, como investigar",
+    "expected": "s05-desempenho"
+  },
+  {
+    "query": "definir o que cada indicador do painel significa",
+    "expected": "s04-dashboard"
+  },
+  {
+    "query": "total de vendas por canal só dos pedidos concluídos",
+    "expected": "s01-agregacoes"
+  },
+  {
+    "query": "agendar tarefas que dependem umas das outras",
+    "expected": "g02-jobs"
+  },
+  {
+    "query": "como saber se os dados chegaram atrasados ou se o custo disparou",
+    "expected": "g04-observabilidade"
+  },
+  {
+    "query": "rodar o mesmo experimento e chegar no mesmo resultado",
+    "expected": "f05-reprodutibilidade"
+  },
+  {
+    "query": "avaliar se a busca encontra o texto certo",
+    "expected": "i04-avaliacao"
+  },
+  {
+    "query": "onde rodar: no computador ou na nuvem",
+    "expected": "f01-mapa"
+  },
+  {
+    "query": "o que é um DataFrame e como filtrar linhas",
+    "expected": "f03-python"
+  },
+  {
+    "query": "registrar versões de modelos e promover para produção",
+    "expected": "m04-mlops"
+  },
+  {
+    "query": "decidir se vale automatizar uma tarefa com IA",
+    "expected": "i05-valor"
+  },
+  {
+    "query": "como funciona um modelo de linguagem",
+    "expected": "i01-llms"
+  },
+  {
+    "query": "colocar notebooks e configurações no Git",
+    "expected": "g03-entrega"
+  }
+]

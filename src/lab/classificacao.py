@@ -1,13 +1,24 @@
 """Classificação com corte temporal, baseline e custo ilustrativo de decisão."""
 import numpy as np
 import pandas as pd
+from sklearn.compose import ColumnTransformer
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import brier_score_loss, confusion_matrix, f1_score, precision_score, recall_score, roc_auc_score
 from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 FEATURES = ["distancia_km", "volumes", "hora_pico", "previsao_chuva", "dia_semana"]
+NUMERICAS = [f for f in FEATURES if f != "dia_semana"]
+
+
+def montar_modelo(seed=42, C=1.0):
+    """Logística com dia da semana categórico; o scaler só vê as features numéricas."""
+    pre = ColumnTransformer([
+        ("num", StandardScaler(), NUMERICAS),
+        ("dia", OneHotEncoder(categories=[list(range(7))], sparse_output=False), ["dia_semana"]),
+    ])
+    return make_pipeline(pre, LogisticRegression(C=C, random_state=seed, max_iter=300))
 
 
 def gerar_entregas(n=600, seed=42):
@@ -31,7 +42,7 @@ def avaliar_entregas(n=600, seed=42, threshold=.5):
     dates = sorted(frame["data"].unique())
     cutoff = dates[int(len(dates) * .8)]
     train, test = frame.loc[frame["data"] < cutoff], frame.loc[frame["data"] >= cutoff]
-    model = make_pipeline(StandardScaler(), LogisticRegression(random_state=seed, max_iter=300))
+    model = montar_modelo(seed)
     model.fit(train[FEATURES], train["atrasou"])
     baseline = DummyClassifier(strategy="prior").fit(train[FEATURES], train["atrasou"])
     probability = model.predict_proba(test[FEATURES])[:, 1]

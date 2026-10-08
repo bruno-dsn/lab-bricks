@@ -1,0 +1,811 @@
+{
+  "protocol_sha256": "aabc03beba5737b3d7c33bee45af32c35c249db6a44705bc95944ea86ecce55a",
+  "tfidf": {
+    "recall@1": 0.4666666666666667,
+    "recall@3": 0.7333333333333333,
+    "MRR@5": 0.6022222222222222,
+    "cobertura": 0.16666666666666666,
+    "precisao_coberta": 0.8,
+    "abstencao_fora_escopo": 0.6666666666666666,
+    "limiar": 0.12,
+    "casos": [
+      {
+        "query": "meu dashboard mostra o dobro do faturamento depois de juntar tabelas",
+        "expected": "s02-joins",
+        "rank": null,
+        "respondida": false,
+        "ranking": [
+          "s05-desempenho",
+          "i06-benchmark-parafraseado",
+          "s04-dashboard",
+          "m08-contrato-inferencia",
+          "e01-medallion"
+        ]
+      },
+      {
+        "query": "como evitar que o modelo veja o futuro durante o treino",
+        "expected": "m02-temporal",
+        "rank": 2,
+        "respondida": false,
+        "ranking": [
+          "m07-selecao-validacao",
+          "m02-temporal",
+          "m08-contrato-inferencia",
+          "m05-drift",
+          "i01-llms"
+        ]
+      },
+      {
+        "query": "rodar o mesmo arquivo duas vezes sem duplicar linhas",
+        "expected": "e03-incremental",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "e03-incremental",
+          "e05-declarativo",
+          "f02-grao",
+          "s02-joins",
+          "i02-busca"
+        ]
+      },
+      {
+        "query": "quem pode ler minhas tabelas",
+        "expected": "g01-acesso",
+        "rank": 2,
+        "respondida": false,
+        "ranking": [
+          "e01-medallion",
+          "g01-acesso",
+          "f01-mapa",
+          "i02-busca",
+          "e05-declarativo"
+        ]
+      },
+      {
+        "query": "como saber se os dados mudaram depois que o modelo foi publicado",
+        "expected": "m05-drift",
+        "rank": 5,
+        "respondida": false,
+        "ranking": [
+          "m07-selecao-validacao",
+          "m06-features-temporais",
+          "m04-mlops",
+          "m08-contrato-inferencia",
+          "m05-drift"
+        ]
+      },
+      {
+        "query": "o que fazer quando o modelo de linguagem inventa fatos",
+        "expected": "i03-rag",
+        "rank": null,
+        "respondida": true,
+        "ranking": [
+          "i01-llms",
+          "m01-baseline",
+          "m08-contrato-inferencia",
+          "m02-temporal",
+          "m07-selecao-validacao"
+        ]
+      },
+      {
+        "query": "qual a diferença entre pedido, item e quantidade",
+        "expected": "f02-grao",
+        "rank": 3,
+        "respondida": false,
+        "ranking": [
+          "e04-json-streaming",
+          "s02-joins",
+          "f02-grao",
+          "m09-instabilidade-selecao",
+          "s04-dashboard"
+        ]
+      },
+      {
+        "query": "como escolher o ponto de corte de um alerta quando errar custa caro",
+        "expected": "m03-classificacao",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "m03-classificacao",
+          "g04-observabilidade",
+          "m01-baseline",
+          "i03-rag",
+          "m05-drift"
+        ]
+      },
+      {
+        "query": "por que dividir os dados em três partes e não em duas",
+        "expected": "m07-selecao-validacao",
+        "rank": null,
+        "respondida": false,
+        "ranking": [
+          "f03-python",
+          "f02-grao",
+          "m09-instabilidade-selecao",
+          "m04-mlops",
+          "e04-json-streaming"
+        ]
+      },
+      {
+        "query": "quero rejeitar entradas estranhas antes de prever",
+        "expected": "m08-contrato-inferencia",
+        "rank": 2,
+        "respondida": false,
+        "ranking": [
+          "m02-temporal",
+          "m08-contrato-inferencia",
+          "m05-drift",
+          "f04-contrato",
+          "e01-medallion"
+        ]
+      },
+      {
+        "query": "comparar o modelo com algo simples antes de celebrar",
+        "expected": "m01-baseline",
+        "rank": 2,
+        "respondida": false,
+        "ranking": [
+          "m08-contrato-inferencia",
+          "m01-baseline",
+          "m09-instabilidade-selecao",
+          "m06-features-temporais",
+          "s05-desempenho"
+        ]
+      },
+      {
+        "query": "juntar histórico de cliente sem usar informação que ainda não existia",
+        "expected": "m06-features-temporais",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "m06-features-temporais",
+          "e02-delta",
+          "f05-reprodutibilidade",
+          "i06-benchmark-parafraseado",
+          "m02-temporal"
+        ]
+      },
+      {
+        "query": "ler arquivos JSON que chegam continuamente numa pasta",
+        "expected": "e04-json-streaming",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "e04-json-streaming",
+          "e02-delta",
+          "g05-evolucao",
+          "f01-mapa",
+          "m07-selecao-validacao"
+        ]
+      },
+      {
+        "query": "guardar dados brutos, limpos e prontos para relatório em camadas",
+        "expected": "e01-medallion",
+        "rank": null,
+        "respondida": false,
+        "ranking": [
+          "f05-reprodutibilidade",
+          "g05-evolucao",
+          "i05-valor",
+          "m04-mlops",
+          "i01-llms"
+        ]
+      },
+      {
+        "query": "voltar a uma versão anterior de uma tabela",
+        "expected": "e02-delta",
+        "rank": 2,
+        "respondida": false,
+        "ranking": [
+          "f04-contrato",
+          "e02-delta",
+          "e03-incremental",
+          "e01-medallion",
+          "m06-features-temporais"
+        ]
+      },
+      {
+        "query": "regras automáticas que derrubam a pipeline se os dados vierem ruins",
+        "expected": "e05-declarativo",
+        "rank": 2,
+        "respondida": false,
+        "ranking": [
+          "f04-contrato",
+          "e05-declarativo",
+          "f01-mapa",
+          "e01-medallion",
+          "i01-llms"
+        ]
+      },
+      {
+        "query": "ranking acumulado por dia sem perder as linhas",
+        "expected": "s03-janelas",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "s03-janelas",
+          "m07-selecao-validacao",
+          "m01-baseline",
+          "f02-grao",
+          "f04-contrato"
+        ]
+      },
+      {
+        "query": "a consulta ficou lenta, como investigar",
+        "expected": "s05-desempenho",
+        "rank": 3,
+        "respondida": false,
+        "ranking": [
+          "s01-agregacoes",
+          "g04-observabilidade",
+          "s05-desempenho",
+          "s04-dashboard",
+          "m07-selecao-validacao"
+        ]
+      },
+      {
+        "query": "definir o que cada indicador do painel significa",
+        "expected": "s04-dashboard",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "s04-dashboard",
+          "g04-observabilidade",
+          "f02-grao",
+          "e01-medallion",
+          "m04-mlops"
+        ]
+      },
+      {
+        "query": "total de vendas por canal só dos pedidos concluídos",
+        "expected": "s01-agregacoes",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "s01-agregacoes",
+          "f02-grao",
+          "f03-python",
+          "s04-dashboard",
+          "s03-janelas"
+        ]
+      },
+      {
+        "query": "agendar tarefas que dependem umas das outras",
+        "expected": "g02-jobs",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "g02-jobs",
+          "i06-benchmark-parafraseado",
+          "g01-acesso",
+          "i01-llms",
+          "m09-instabilidade-selecao"
+        ]
+      },
+      {
+        "query": "como saber se os dados chegaram atrasados ou se o custo disparou",
+        "expected": "g04-observabilidade",
+        "rank": null,
+        "respondida": false,
+        "ranking": [
+          "m09-instabilidade-selecao",
+          "m07-selecao-validacao",
+          "f01-mapa",
+          "m03-classificacao",
+          "i05-valor"
+        ]
+      },
+      {
+        "query": "rodar o mesmo experimento e chegar no mesmo resultado",
+        "expected": "f05-reprodutibilidade",
+        "rank": null,
+        "respondida": false,
+        "ranking": [
+          "e03-incremental",
+          "i06-benchmark-parafraseado",
+          "f03-python",
+          "m04-mlops",
+          "g03-entrega"
+        ]
+      },
+      {
+        "query": "avaliar se a busca encontra o texto certo",
+        "expected": "i04-avaliacao",
+        "rank": 5,
+        "respondida": false,
+        "ranking": [
+          "i02-busca",
+          "i06-benchmark-parafraseado",
+          "i05-valor",
+          "i01-llms",
+          "i04-avaliacao"
+        ]
+      },
+      {
+        "query": "onde rodar: no computador ou na nuvem",
+        "expected": "f01-mapa",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "f01-mapa",
+          "i01-llms",
+          "i03-rag",
+          "g03-entrega",
+          "m02-temporal"
+        ]
+      },
+      {
+        "query": "o que é um DataFrame e como filtrar linhas",
+        "expected": "f03-python",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "f03-python",
+          "f02-grao",
+          "i03-rag",
+          "i01-llms",
+          "s02-joins"
+        ]
+      },
+      {
+        "query": "registrar versões de modelos e promover para produção",
+        "expected": "m04-mlops",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "m04-mlops",
+          "m01-baseline",
+          "g05-evolucao",
+          "e02-delta",
+          "m08-contrato-inferencia"
+        ]
+      },
+      {
+        "query": "decidir se vale automatizar uma tarefa com IA",
+        "expected": "i05-valor",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "i05-valor",
+          "i01-llms",
+          "g02-jobs",
+          "i03-rag",
+          "i06-benchmark-parafraseado"
+        ]
+      },
+      {
+        "query": "como funciona um modelo de linguagem",
+        "expected": "i01-llms",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "i01-llms",
+          "m08-contrato-inferencia",
+          "m04-mlops",
+          "i03-rag",
+          "e05-declarativo"
+        ]
+      },
+      {
+        "query": "colocar notebooks e configurações no Git",
+        "expected": "g03-entrega",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "g03-entrega",
+          "f05-reprodutibilidade",
+          "f01-mapa",
+          "s02-joins",
+          "s01-agregacoes"
+        ]
+      }
+    ]
+  },
+  "semantica": {
+    "recall@1": 0.4,
+    "recall@3": 0.6333333333333333,
+    "MRR@5": 0.528888888888889,
+    "cobertura": 0.7666666666666667,
+    "precisao_coberta": 0.391304347826087,
+    "abstencao_fora_escopo": 1.0,
+    "limiar": 0.45,
+    "casos": [
+      {
+        "query": "meu dashboard mostra o dobro do faturamento depois de juntar tabelas",
+        "expected": "s02-joins",
+        "rank": null,
+        "respondida": false,
+        "ranking": [
+          "s04-dashboard",
+          "f02-grao",
+          "s05-desempenho",
+          "e03-incremental",
+          "s03-janelas"
+        ]
+      },
+      {
+        "query": "como evitar que o modelo veja o futuro durante o treino",
+        "expected": "m02-temporal",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "m02-temporal",
+          "m01-baseline",
+          "m08-contrato-inferencia",
+          "m05-drift",
+          "m03-classificacao"
+        ]
+      },
+      {
+        "query": "rodar o mesmo arquivo duas vezes sem duplicar linhas",
+        "expected": "e03-incremental",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "e03-incremental",
+          "s02-joins",
+          "f02-grao",
+          "f03-python",
+          "e05-declarativo"
+        ]
+      },
+      {
+        "query": "quem pode ler minhas tabelas",
+        "expected": "g01-acesso",
+        "rank": 3,
+        "respondida": false,
+        "ranking": [
+          "s04-dashboard",
+          "f01-mapa",
+          "g01-acesso",
+          "i06-benchmark-parafraseado",
+          "g04-observabilidade"
+        ]
+      },
+      {
+        "query": "como saber se os dados mudaram depois que o modelo foi publicado",
+        "expected": "m05-drift",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "m05-drift",
+          "m01-baseline",
+          "m08-contrato-inferencia",
+          "m06-features-temporais",
+          "f05-reprodutibilidade"
+        ]
+      },
+      {
+        "query": "o que fazer quando o modelo de linguagem inventa fatos",
+        "expected": "i03-rag",
+        "rank": 4,
+        "respondida": true,
+        "ranking": [
+          "i01-llms",
+          "i02-busca",
+          "f03-python",
+          "i03-rag",
+          "f05-reprodutibilidade"
+        ]
+      },
+      {
+        "query": "qual a diferença entre pedido, item e quantidade",
+        "expected": "f02-grao",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "f02-grao",
+          "m03-classificacao",
+          "i05-valor",
+          "g04-observabilidade",
+          "f04-contrato"
+        ]
+      },
+      {
+        "query": "como escolher o ponto de corte de um alerta quando errar custa caro",
+        "expected": "m03-classificacao",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "m03-classificacao",
+          "m09-instabilidade-selecao",
+          "g04-observabilidade",
+          "i04-avaliacao",
+          "m05-drift"
+        ]
+      },
+      {
+        "query": "por que dividir os dados em três partes e não em duas",
+        "expected": "m07-selecao-validacao",
+        "rank": 5,
+        "respondida": true,
+        "ranking": [
+          "f02-grao",
+          "s02-joins",
+          "f03-python",
+          "s03-janelas",
+          "m07-selecao-validacao"
+        ]
+      },
+      {
+        "query": "quero rejeitar entradas estranhas antes de prever",
+        "expected": "m08-contrato-inferencia",
+        "rank": null,
+        "respondida": true,
+        "ranking": [
+          "f02-grao",
+          "m06-features-temporais",
+          "m07-selecao-validacao",
+          "g04-observabilidade",
+          "i06-benchmark-parafraseado"
+        ]
+      },
+      {
+        "query": "comparar o modelo com algo simples antes de celebrar",
+        "expected": "m01-baseline",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "m01-baseline",
+          "m07-selecao-validacao",
+          "m09-instabilidade-selecao",
+          "m03-classificacao",
+          "m05-drift"
+        ]
+      },
+      {
+        "query": "juntar histórico de cliente sem usar informação que ainda não existia",
+        "expected": "m06-features-temporais",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "m06-features-temporais",
+          "g01-acesso",
+          "e02-delta",
+          "m04-mlops",
+          "g05-evolucao"
+        ]
+      },
+      {
+        "query": "ler arquivos JSON que chegam continuamente numa pasta",
+        "expected": "e04-json-streaming",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "e04-json-streaming",
+          "f01-mapa",
+          "f03-python",
+          "g01-acesso",
+          "e03-incremental"
+        ]
+      },
+      {
+        "query": "guardar dados brutos, limpos e prontos para relatório em camadas",
+        "expected": "e01-medallion",
+        "rank": null,
+        "respondida": true,
+        "ranking": [
+          "s04-dashboard",
+          "g05-evolucao",
+          "e05-declarativo",
+          "g04-observabilidade",
+          "m07-selecao-validacao"
+        ]
+      },
+      {
+        "query": "voltar a uma versão anterior de uma tabela",
+        "expected": "e02-delta",
+        "rank": 2,
+        "respondida": true,
+        "ranking": [
+          "m06-features-temporais",
+          "e02-delta",
+          "s03-janelas",
+          "i06-benchmark-parafraseado",
+          "e03-incremental"
+        ]
+      },
+      {
+        "query": "regras automáticas que derrubam a pipeline se os dados vierem ruins",
+        "expected": "e05-declarativo",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "e05-declarativo",
+          "m08-contrato-inferencia",
+          "g02-jobs",
+          "f04-contrato",
+          "m05-drift"
+        ]
+      },
+      {
+        "query": "ranking acumulado por dia sem perder as linhas",
+        "expected": "s03-janelas",
+        "rank": null,
+        "respondida": true,
+        "ranking": [
+          "m03-classificacao",
+          "s01-agregacoes",
+          "m08-contrato-inferencia",
+          "m02-temporal",
+          "e01-medallion"
+        ]
+      },
+      {
+        "query": "a consulta ficou lenta, como investigar",
+        "expected": "s05-desempenho",
+        "rank": null,
+        "respondida": false,
+        "ranking": [
+          "m01-baseline",
+          "i02-busca",
+          "m05-drift",
+          "m07-selecao-validacao",
+          "m03-classificacao"
+        ]
+      },
+      {
+        "query": "definir o que cada indicador do painel significa",
+        "expected": "s04-dashboard",
+        "rank": null,
+        "respondida": true,
+        "ranking": [
+          "g02-jobs",
+          "f01-mapa",
+          "i05-valor",
+          "i01-llms",
+          "m05-drift"
+        ]
+      },
+      {
+        "query": "total de vendas por canal só dos pedidos concluídos",
+        "expected": "s01-agregacoes",
+        "rank": 3,
+        "respondida": true,
+        "ranking": [
+          "f02-grao",
+          "s03-janelas",
+          "s01-agregacoes",
+          "m08-contrato-inferencia",
+          "g02-jobs"
+        ]
+      },
+      {
+        "query": "agendar tarefas que dependem umas das outras",
+        "expected": "g02-jobs",
+        "rank": 4,
+        "respondida": true,
+        "ranking": [
+          "i05-valor",
+          "f01-mapa",
+          "i03-rag",
+          "g02-jobs",
+          "m01-baseline"
+        ]
+      },
+      {
+        "query": "como saber se os dados chegaram atrasados ou se o custo disparou",
+        "expected": "g04-observabilidade",
+        "rank": 2,
+        "respondida": true,
+        "ranking": [
+          "m01-baseline",
+          "g04-observabilidade",
+          "m03-classificacao",
+          "m05-drift",
+          "m07-selecao-validacao"
+        ]
+      },
+      {
+        "query": "rodar o mesmo experimento e chegar no mesmo resultado",
+        "expected": "f05-reprodutibilidade",
+        "rank": null,
+        "respondida": true,
+        "ranking": [
+          "s05-desempenho",
+          "m01-baseline",
+          "m05-drift",
+          "m08-contrato-inferencia",
+          "m07-selecao-validacao"
+        ]
+      },
+      {
+        "query": "avaliar se a busca encontra o texto certo",
+        "expected": "i04-avaliacao",
+        "rank": null,
+        "respondida": true,
+        "ranking": [
+          "i06-benchmark-parafraseado",
+          "i05-valor",
+          "s03-janelas",
+          "g05-evolucao",
+          "e04-json-streaming"
+        ]
+      },
+      {
+        "query": "onde rodar: no computador ou na nuvem",
+        "expected": "f01-mapa",
+        "rank": 2,
+        "respondida": false,
+        "ranking": [
+          "m08-contrato-inferencia",
+          "f01-mapa",
+          "i05-valor",
+          "m05-drift",
+          "i03-rag"
+        ]
+      },
+      {
+        "query": "o que é um DataFrame e como filtrar linhas",
+        "expected": "f03-python",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "f03-python",
+          "s04-dashboard",
+          "m07-selecao-validacao",
+          "f01-mapa",
+          "s03-janelas"
+        ]
+      },
+      {
+        "query": "registrar versões de modelos e promover para produção",
+        "expected": "m04-mlops",
+        "rank": 2,
+        "respondida": true,
+        "ranking": [
+          "m01-baseline",
+          "m04-mlops",
+          "m08-contrato-inferencia",
+          "s03-janelas",
+          "s04-dashboard"
+        ]
+      },
+      {
+        "query": "decidir se vale automatizar uma tarefa com IA",
+        "expected": "i05-valor",
+        "rank": 1,
+        "respondida": true,
+        "ranking": [
+          "i05-valor",
+          "f01-mapa",
+          "i01-llms",
+          "m08-contrato-inferencia",
+          "m01-baseline"
+        ]
+      },
+      {
+        "query": "como funciona um modelo de linguagem",
+        "expected": "i01-llms",
+        "rank": 2,
+        "respondida": true,
+        "ranking": [
+          "f03-python",
+          "i01-llms",
+          "i02-busca",
+          "i03-rag",
+          "m08-contrato-inferencia"
+        ]
+      },
+      {
+        "query": "colocar notebooks e configurações no Git",
+        "expected": "g03-entrega",
+        "rank": 1,
+        "respondida": false,
+        "ranking": [
+          "g03-entrega",
+          "f01-mapa",
+          "g02-jobs",
+          "f05-reprodutibilidade",
+          "m08-contrato-inferencia"
+        ]
+      }
+    ]
+  },
+  "limites": [
+    "Perguntas congeladas da 2.1, não independentes desta família de laboratório",
+    "Limiar não calibrado",
+    "Chunking diferente impede isolar efeito do encoder",
+    "Resultados deste recorte, sem promessa de superioridade geral"
+  ]
+}

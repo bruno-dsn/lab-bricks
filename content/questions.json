@@ -508,5 +508,317 @@
     ],
     "answer": 2,
     "explanation": "A assinatura descreve estrutura e tipos. Unidades, disponibilidade, valores admissíveis e comportamento de falha exigem um contrato e verificações próprias."
+  },
+  {
+    "id": "q40",
+    "track": "machine-learning",
+    "question": "Em 30 amostras, dois modelos quase empatados alternam a vitória. O que isso diz?",
+    "choices": [
+      "O código tem um bug",
+      "A escolha fina entre eles é ruído; o ganho sobre uma política trivial pode continuar estável",
+      "Deve-se escolher o vencedor da última amostra"
+    ],
+    "answer": 1,
+    "explanation": "A seleção tem variância. Medir o ganho sobre uma política trivial e a frequência das escolhas separa o que é estável do que é acaso.",
+    "lesson": "m09-instabilidade-selecao"
+  },
+  {
+    "id": "q41",
+    "track": "machine-learning",
+    "question": "Com custo de R$ 5 por falso positivo e R$ 30 por falso negativo, qual é o limiar teórico de alerta para probabilidades calibradas?",
+    "choices": [
+      "0,50",
+      "Cerca de 0,14",
+      "Cerca de 0,86"
+    ],
+    "answer": 1,
+    "explanation": "Alertar compensa quando p × 30 ≥ (1 − p) × 5, ou seja, p ≥ 5/35 ≈ 0,143.",
+    "lesson": "m09-instabilidade-selecao"
+  },
+  {
+    "id": "q42",
+    "track": "ia-recuperacao",
+    "question": "Por que um benchmark com perguntas copiadas das aulas superestima a busca?",
+    "choices": [
+      "Porque elas são curtas demais",
+      "Porque repetem o vocabulário do índice, e pessoas reais usam outras palavras",
+      "Porque TF-IDF não aceita acentos"
+    ],
+    "answer": 1,
+    "explanation": "A busca lexical depende de palavras em comum. Paráfrases revelam falhas com sinônimos que o teste copiado esconde.",
+    "lesson": "i06-benchmark-parafraseado"
+  },
+  {
+    "id": "q43",
+    "track": "ia-recuperacao",
+    "question": "O que acontece ao subir muito o limiar mínimo de similaridade para a busca se abster?",
+    "choices": [
+      "O recall das perguntas legítimas sobe",
+      "A abstenção aumenta, mas respostas corretas com poucas palavras em comum também são descartadas",
+      "Nada, o limiar só afeta o tempo de resposta"
+    ],
+    "answer": 1,
+    "explanation": "Abster-se e acertar competem: é preciso medir as duas coisas juntas antes de escolher o limiar.",
+    "lesson": "i06-benchmark-parafraseado"
+  },
+  {
+    "id": "v3-f06-estudo-com-evidencias-1",
+    "lesson": "f06-estudo-com-evidencias",
+    "track": "fundamentos",
+    "question": "Qual evidência demonstra melhor aprendizado?",
+    "choices": [
+      "Código com teste e explicação do grão",
+      "Só marcar todas as aulas",
+      "Abrir a solução pronta"
+    ],
+    "answer": 0,
+    "explanation": "O resultado e a explicação mostram uma habilidade observável."
+  },
+  {
+    "id": "v3-f06-estudo-com-evidencias-2",
+    "lesson": "f06-estudo-com-evidencias",
+    "track": "fundamentos",
+    "question": "O feedback importado é um certificado?",
+    "choices": [
+      "Sim, porque contém um hash",
+      "Não; é um registro pessoal editável",
+      "Sim, se todos os testes passam"
+    ],
+    "answer": 1,
+    "explanation": "O hash identifica bytes; não autentica a autoria nem impede editar o relatório."
+  },
+  {
+    "id": "v3-s06-sql-missoes-1",
+    "lesson": "s06-sql-missoes",
+    "track": "sql-bi",
+    "question": "Como juntar itens e pagamentos sem multiplicar receita?",
+    "choices": [
+      "Agregar cada filha por pedido antes do JOIN",
+      "Usar SUM(DISTINCT valor) sempre",
+      "Trocar LEFT por INNER JOIN"
+    ],
+    "answer": 0,
+    "explanation": "As CTEs reduzem cada filha ao grão esperado."
+  },
+  {
+    "id": "v3-s06-sql-missoes-2",
+    "lesson": "s06-sql-missoes",
+    "track": "sql-bi",
+    "question": "Por que agregar antes da janela diária?",
+    "choices": [
+      "Para usar mais memória",
+      "Para ordenar pelo produto",
+      "Para calcular sobre uma linha por dia"
+    ],
+    "answer": 2,
+    "explanation": "O quadro da janela deve operar no grão do indicador."
+  },
+  {
+    "id": "v3-e06-dados-reais-1",
+    "lesson": "e06-dados-reais",
+    "track": "engenharia",
+    "question": "Uma quantidade negativa em fatura C é sempre sujeira?",
+    "choices": [
+      "Sim, vendas nunca são negativas",
+      "Não; pode representar estorno válido",
+      "Sim, devemos convertê-la para positiva"
+    ],
+    "answer": 1,
+    "explanation": "O sinal deve ser interpretado junto da regra de cancelamento."
+  },
+  {
+    "id": "v3-e06-dados-reais-2",
+    "lesson": "e06-dados-reais",
+    "track": "engenharia",
+    "question": "Qual igualdade confere a reconciliação?",
+    "choices": [
+      "Entrada = Silver + rejeitadas + substituídas",
+      "Entrada = Gold + receita",
+      "Silver = entrada sempre"
+    ],
+    "answer": 0,
+    "explanation": "A partição conserva cada linha da origem sem desaparecimento silencioso."
+  },
+  {
+    "id": "v3-m10-validacao-temporal-1",
+    "lesson": "m10-validacao-temporal",
+    "track": "machine-learning",
+    "question": "Onde escolher C e limiar?",
+    "choices": [
+      "No teste final",
+      "Nas janelas de desenvolvimento",
+      "No conjunto completo"
+    ],
+    "answer": 1,
+    "explanation": "A escolha usa validações anteriores ao teste congelado."
+  },
+  {
+    "id": "v3-m10-validacao-temporal-2",
+    "lesson": "m10-validacao-temporal",
+    "track": "machine-learning",
+    "question": "Gap contado em linhas garante separação de datas?",
+    "choices": [
+      "Não, um dia pode ter várias linhas",
+      "Sim, uma linha sempre equivale a um dia",
+      "Só se houver one-hot"
+    ],
+    "answer": 0,
+    "explanation": "O laboratório corta datas distintas para preservar dias inteiros."
+  },
+  {
+    "id": "v3-m11-calibracao-1",
+    "lesson": "m11-calibracao",
+    "track": "machine-learning",
+    "question": "O limiar 5/35 pressupõe o quê?",
+    "choices": [
+      "Probabilidades calibradas e custos coerentes",
+      "AUC perfeita",
+      "Que todo modelo é logístico"
+    ],
+    "answer": 0,
+    "explanation": "A derivação compara o custo esperado de alertar e não alertar."
+  },
+  {
+    "id": "v3-m11-calibracao-2",
+    "lesson": "m11-calibracao",
+    "track": "machine-learning",
+    "question": "Onde ajustar o calibrador?",
+    "choices": [
+      "No teste final",
+      "No mesmo conjunto usado para treinar o modelo base",
+      "Num bloco separado anterior à validação e ao teste"
+    ],
+    "answer": 2,
+    "explanation": "Separar os papéis evita consumir a avaliação final."
+  },
+  {
+    "id": "v3-m12-monitoramento-decisoes-1",
+    "lesson": "m12-monitoramento-decisoes",
+    "track": "machine-learning",
+    "question": "PSI alto sozinho decide retreinamento?",
+    "choices": [
+      "Sim, sempre",
+      "Não; pede investigação e contexto",
+      "Só se usar logística"
+    ],
+    "answer": 1,
+    "explanation": "Mudança de entrada não prova degradação do desempenho."
+  },
+  {
+    "id": "v3-m12-monitoramento-decisoes-2",
+    "lesson": "m12-monitoramento-decisoes",
+    "track": "machine-learning",
+    "question": "Uma política deve promover o candidato automaticamente?",
+    "choices": [
+      "Sim, ao primeiro Brier melhor",
+      "Sim, se o treino passar",
+      "Não; comparação temporal e revisão devem anteceder promoção"
+    ],
+    "answer": 2,
+    "explanation": "Treinar, avaliar e promover são decisões diferentes."
+  },
+  {
+    "id": "v3-i07-busca-semantica-1",
+    "lesson": "i07-busca-semantica",
+    "track": "ia-recuperacao",
+    "question": "Como comparar duas buscas de forma justa?",
+    "choices": [
+      "Usar perguntas diferentes para cada uma",
+      "Congelar perguntas e corpus antes de medir",
+      "Editar as perguntas que falharam"
+    ],
+    "answer": 1,
+    "explanation": "Um benchmark congelado reduz ajuste oportunista ao resultado."
+  },
+  {
+    "id": "v3-i07-busca-semantica-2",
+    "lesson": "i07-busca-semantica",
+    "track": "ia-recuperacao",
+    "question": "Cosseno 0,7 significa 70% de chance de acerto?",
+    "choices": [
+      "Não; precisa de calibração e avaliação",
+      "Sim, por definição",
+      "Sim, se o modelo for multilingual"
+    ],
+    "answer": 0,
+    "explanation": "Similaridade geométrica não é probabilidade calibrada."
+  },
+  {
+    "id": "v3-i08-rag-avaliado-1",
+    "lesson": "i08-rag-avaliado",
+    "track": "ia-recuperacao",
+    "question": "Citação de ID existente prova suporte factual?",
+    "choices": [
+      "Sim",
+      "Só se o JSON passar",
+      "Não; é preciso revisar a afirmação e a evidência"
+    ],
+    "answer": 2,
+    "explanation": "Validade estrutural e suporte factual são camadas diferentes."
+  },
+  {
+    "id": "v3-i08-rag-avaliado-2",
+    "lesson": "i08-rag-avaliado",
+    "track": "ia-recuperacao",
+    "question": "Qual custo reportar sem preço de CPU informado?",
+    "choices": [
+      "Zero",
+      "Não informado, junto de tokens e tempo",
+      "Um preço arbitrário"
+    ],
+    "answer": 1,
+    "explanation": "Tempo e tokens são observações; preço ausente não deve ser inventado."
+  },
+  {
+    "id": "v3-e07-cdc-scd2-1",
+    "lesson": "e07-cdc-scd2",
+    "track": "engenharia",
+    "question": "Qual intervalo representa SCD2 aqui?",
+    "choices": [
+      "Início inclusivo e fim exclusivo",
+      "Duas pontas inclusivas",
+      "Sem fronteiras temporais"
+    ],
+    "answer": 0,
+    "explanation": "A fronteira exclusiva evita uma venda pertencer a duas versões."
+  },
+  {
+    "id": "v3-e07-cdc-scd2-2",
+    "lesson": "e07-cdc-scd2",
+    "track": "engenharia",
+    "question": "Mesmo ID com payload diferente é replay seguro?",
+    "choices": [
+      "Sim",
+      "Não; é conflito",
+      "Só se chegar depois"
+    ],
+    "answer": 1,
+    "explanation": "Idempotência não autoriza reutilizar IDs para alterações diferentes."
+  },
+  {
+    "id": "v3-e08-watermark-1",
+    "lesson": "e08-watermark",
+    "track": "engenharia",
+    "question": "Qual fronteira o simulador aplica ao lote atual?",
+    "choices": [
+      "A do lote anterior",
+      "A calculada após ordenar o lote atual",
+      "A hora do computador"
+    ],
+    "answer": 0,
+    "explanation": "O avanço observado no lote afeta o próximo microbatch."
+  },
+  {
+    "id": "v3-e08-watermark-2",
+    "lesson": "e08-watermark",
+    "track": "engenharia",
+    "question": "A referência Pandas reproduz todo estado do Spark?",
+    "choices": [
+      "Sim, em qualquer operador",
+      "Não; tem simplificações declaradas",
+      "Sim, se o dataset é pequeno"
+    ],
+    "answer": 1,
+    "explanation": "Regra por timestamp e IDs globais diferem de alguns operadores nativos."
   }
 ]

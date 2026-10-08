@@ -22,3 +22,16 @@ def test_teste_temporal_e_mae_calculado():
     assert info["treino_fim"] < info["teste_inicio"]
     assert info["mae_baseline"] == (result.real - result.baseline).abs().mean()
     assert info["mae_modelo"] >= 0
+
+
+def test_baseline_semanal_e_dia_da_semana_categorico():
+    result, info = comparar(tratar(gerar_vendas()).gold)
+    assert list(result.columns) == ["real", "baseline", "baseline_semanal", "baseline_media", "modelo"]
+    assert info["mae_baseline_semanal"] == (result.real - result.baseline_semanal).abs().mean()
+    assert result.baseline_media.nunique() == 1 and info["mae_baseline_media"] == (result.real - result.baseline_media).abs().mean()
+    from lab.ml import montar_modelo, NUMERICAS
+    df = preparar_features(tratar(gerar_vendas()).gold)
+    model = montar_modelo().fit(df.iloc[:-14][["lag_1", "lag_7", "media_7", "dia_semana"]], df.iloc[:-14]["receita"])
+    scaler = model.named_steps["columntransformer"].named_transformers_["num"]
+    assert list(scaler.mean_.round(6)) == list(df.iloc[:-14][NUMERICAS].mean().round(6))
+    assert model.named_steps["columntransformer"].named_transformers_["dia"].categories_[0].tolist() == list(range(7))

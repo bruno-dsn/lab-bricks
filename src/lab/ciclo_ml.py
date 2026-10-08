@@ -1,13 +1,24 @@
 """Features no instante correto, seleção temporal e contrato de inferência."""
 import numpy as np
 import pandas as pd
+from sklearn.compose import ColumnTransformer
 from sklearn.dummy import DummyClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import brier_score_loss, confusion_matrix, roc_auc_score
 from sklearn.pipeline import make_pipeline
-from sklearn.preprocessing import StandardScaler
+from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 COLUNAS_ENTRADA = ["distancia_km", "volumes", "hora_pico", "previsao_chuva", "dia_semana"]
+NUMERICAS = [c for c in COLUNAS_ENTRADA if c != "dia_semana"]
+
+
+def montar_modelo(seed=42, C=1.0):
+    """Logística com dia da semana categórico; o scaler só vê as features numéricas."""
+    pre = ColumnTransformer([
+        ("num", StandardScaler(), NUMERICAS),
+        ("dia", OneHotEncoder(categories=[list(range(7))], sparse_output=False), ["dia_semana"]),
+    ])
+    return make_pipeline(pre, LogisticRegression(C=C, random_state=seed, max_iter=300))
 
 
 def juntar_no_instante(pedidos, historico):
@@ -90,8 +101,8 @@ def avaliar_ciclo(frame, seed=42):
     if train.atrasou.nunique() != 2:
         raise ValueError("Treino precisa conter as duas classes.")
     candidates = {"baseline": DummyClassifier(strategy="prior"),
-                  "logistica_C_0.1": make_pipeline(StandardScaler(), LogisticRegression(C=.1, random_state=seed, max_iter=300)),
-                  "logistica_C_1": make_pipeline(StandardScaler(), LogisticRegression(C=1, random_state=seed, max_iter=300))}
+                  "logistica_C_0.1": montar_modelo(seed, .1),
+                  "logistica_C_1": montar_modelo(seed, 1)}
     rows = []
     for name, model in candidates.items():
         model.fit(validar_entrada(train[COLUNAS_ENTRADA]), train.atrasou)

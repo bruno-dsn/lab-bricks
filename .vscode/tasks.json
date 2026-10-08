@@ -1,0 +1,7 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {"label": "Lab Bricks: abrir escola", "type": "process", "command": "${command:python.interpreterPath}", "args": ["scripts/iniciar.py"], "problemMatcher": []},
+    {"label": "Lab Bricks: verificar projeto", "type": "process", "command": "${command:python.interpreterPath}", "args": ["scripts/verify_project.py"], "problemMatcher": []}
+  ]
+}

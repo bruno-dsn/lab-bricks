@@ -1,0 +1,18 @@
+{
+  "id": "lab-bricks-busca-congelada-1",
+  "corpus_aulas": 35,
+  "queries_parafraseadas": 30,
+  "queries_fora_escopo": 6,
+  "hashes": {
+    "benchmark_corpus.json": "d04271411308b6851c93d868c0ad2efaaad82fb0bbd9c4fefbe75b320b4987be",
+    "retrieval_benchmark.json": "2cfa7f515c52b760ab75a8e1e982d24d57efa18c172d0f77f73441593b911a01",
+    "retrieval_benchmark_parafraseado.json": "15b4aea2b91d6e7ecfb305bbf581c9760616db089d8418452f9d66035fb7e702",
+    "retrieval_fora_do_escopo.json": "92224e47c0d54e88616103596f9c1c5fb64983e40332187529a7244768e6453a"
+  },
+  "tfidf_limiar": 0.12,
+  "semantica_limiar": 0.45,
+  "chunks_caracteres": 850,
+  "sobreposicao": 120,
+  "max_tokens": 128,
+  "nota": "Limiar fixado antes da medição; não calibrado. Comparação de receitas completas: chunking difere da busca por documento."
+}

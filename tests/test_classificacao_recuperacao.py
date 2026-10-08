@@ -1,7 +1,10 @@
 import numpy as np
 import pytest
 from lab.classificacao import avaliar_entregas, psi, FEATURES
-from lab.recuperacao import buscar, recall_at_k
+import json
+from pathlib import Path
+from lab.conteudo import carregar
+from lab.recuperacao import buscar, recall_at_k, mrr_at_k, taxa_de_abstencao
 
 DOCS = [
     {'id': 'delta', 'title': 'Delta', 'text': 'MERGE atualiza pedidos por chave e versão. Repetir lotes exige idempotência.'},
@@ -48,3 +51,28 @@ def test_busca_rastreavel_e_abstencao_lexical():
 def test_busca_limita_entradas(query, k):
     with pytest.raises(ValueError):
         buscar(query, DOCS, k)
+
+
+def test_mrr_e_abstencao_em_corpus_pequeno():
+    cases = [{'query': 'vazamento temporal', 'expected': 'ml'}, {'query': 'idempotência lotes', 'expected': 'delta'}]
+    assert mrr_at_k(cases, DOCS, 2) == 1
+    assert mrr_at_k([{'query': 'zzz inexistente', 'expected': 'ml'}], DOCS, 2) == 0
+    assert taxa_de_abstencao(['qzxywvu'], DOCS) == 1
+    assert taxa_de_abstencao(['MERGE chave'], DOCS) == 0
+    with pytest.raises(ValueError):
+        taxa_de_abstencao(['x'], DOCS, 1.5)
+
+
+def test_benchmarks_literal_e_parafraseado_mostram_a_limitacao_do_tfidf():
+    root = Path(__file__).resolve().parents[1] / 'content'
+    lessons, _, _ = carregar(root)
+    docs = [{'id': a.id, 'title': a.titulo, 'text': a.corpo} for a in lessons]
+    literal = json.loads((root / 'retrieval_benchmark.json').read_text())
+    parafraseado = json.loads((root / 'retrieval_benchmark_parafraseado.json').read_text())
+    fora = json.loads((root / 'retrieval_fora_do_escopo.json').read_text())
+    assert len(parafraseado) >= 30 and len(fora) >= 5
+    assert recall_at_k(literal, docs, 3)[0] == 1
+    # A diferença é o ponto didático: se alguém "consertar" isso copiando palavras das aulas, este teste avisa.
+    assert recall_at_k(parafraseado, docs, 1)[0] < recall_at_k(literal, docs, 1)[0] - .25
+    assert 0 < recall_at_k(parafraseado, docs, 3)[0] < 1
+    assert taxa_de_abstencao(fora, docs, 0) < .5 <= taxa_de_abstencao(fora, docs, .2)

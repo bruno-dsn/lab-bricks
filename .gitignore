@@ -24,3 +24,8 @@ lab-bricks-progresso*.json
 upload/
 *.pdf
 *.epub
+
+artifacts/
+models/
+*caderno*.json
+*feedback*.json

@@ -1,0 +1,2 @@
+# Geração local opcional usa executável nativo llama.cpp b11429.
+# Nenhum pacote Python extra é necessário; veja docs/RAG_LOCAL.md.

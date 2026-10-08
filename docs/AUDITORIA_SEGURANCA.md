@@ -1,19 +1,19 @@
 # Revisão de segurança do Lab Bricks
 
-**Versão 2.0 · 7 de outubro de 2026.** Referência solicitada: [checklist de 21 pontos da NotKode](https://notkode.com.br/pt/recursos/hub-de-conteudos/checklist-de-seguranca).
+**Versão 3.0 · 8 de outubro de 2026.** Referência solicitada: [checklist de 21 pontos da NotKode](https://notkode.com.br/pt/recursos/hub-de-conteudos/checklist-de-seguranca).
 
 A inspeção não encontrou falha de segurança confirmada nos caminhos locais exercitados. Isso não é certificação nem comprovação de um serviço hospedado. Cinco temas exigem revisão de conta/hospedagem. O repositório existente foi renomeado preservando histórico, com busca limitada de padrões também nos blobs Git.
 
 ## Escopo e evidências
 
-- App com dados fictícios, catálogo local de aulas próprias e progresso na sessão.
-- Importação **somente de JSON de progresso**: até 100 KB no backend, formato/versão/chaves exatos, lista limitada e IDs conhecidos. Não executa código, pickle, caminhos nem URLs e não grava o arquivo no servidor.
+- App com dados sintéticos e amostra pública licenciada; caderno/progresso pessoal na sessão, sem cache compartilhado de informações pessoais.
+- Importação **somente de JSON de progresso, caderno e feedback**: até 100 KB no backend, formato/versão/chaves exatos, lista limitada e IDs conhecidos. Não executa código, pickle, caminhos nem URLs e não grava o arquivo no servidor.
 - Dois editores SQL com cópia SQLite efêmera. Authorizer permite leitura apenas das tabelas internas e funções aprovadas. Bloqueia escrita, catálogos do SQLite, arquivos, extensões, PRAGMA e recursão; tamanho, linhas e instruções são limitados.
-- Busca TF-IDF apenas sobre aulas próprias e com limites; sem API/LLM, ferramentas de escrita ou envio a serviços.
+- Busca sobre aulas próprias, benchmark semântico congelado e RAG extrativo com limites. Geração local é um comando opcional, separado do app, sem ferramentas ou chave de API.
 - Página Adicionar conteúdo gera download; não inclui arquivos nem modifica o servidor. Mantenedores adicionam arquivos pelo Git.
-- **105 testes locais aprovados**, incluindo 13 páginas do app, limites de progresso, SQL com múltiplas tabelas, cardinalidade, reprocessamento e avaliação temporal.
-- **Cinco cenários Spark 4.0.1 aprovados**: três de qualidade/versões/nulos, um JSON e um BI com janela. Sem Delta ou serviços de conta.
-- **54 dependências fixadas consultadas no OSV**, sem advisories retornados nesta consulta. Isso não prova ausência de vulnerabilidades desconhecidas. A CI repete a auditoria e falha se não terminar ou encontrar achados.
+- **169 testes locais aprovados**, incluindo 23 páginas do app, 14 exercícios com soluções, limites de progresso, SQL com múltiplas tabelas, cardinalidade, reprocessamento e avaliação temporal.
+- **Sete cenários Spark 4.0.1 aprovados**: três de qualidade/versões/nulos, um JSON, um BI com janela, Gold público e streaming com replay. Sem Delta ou serviços de conta.
+- **69 dependências fixadas consultadas no OSV**, sem advisories retornados nesta consulta. Isso não prova ausência de vulnerabilidades desconhecidas. A CI repete a auditoria e falha se não terminar ou encontrar achados.
 - Fonte, sintaxe, links locais, catálogo, pares de notebooks, CSV e histórico inspecionados. A busca de segredos cobre padrões conhecidos, sem imprimir valores; não é universal.
 
 ## Checklist aplicado
@@ -61,3 +61,9 @@ A inspeção não encontrou falha de segurança confirmada nos caminhos locais e
 Antes de acrescentar dados privados ou publicar um serviço, confira autenticação/sessão, matriz UC e privilégios herdados, isolamento com outra identidade, limites por IP/concorrência e políticas HTTP/TLS. Execute também recursos nativos e teste falha/reprocessamento. Essas cinco classes de pendência não são apresentadas como controles já validados.
 
 A importação de progresso substituiu o antigo “não há upload”: este caminho novo foi revisado e testado. A página de template é uma ferramenta de preparação, não um cadastro administrativo. Livros/PDFs e outputs de conta continuam fora da entrega. Veja [validação nativa](VALIDACAO_DATABRICKS.md) e [roadmap](ROADMAP.md).
+
+## Ampliação 3.0 e referência externa
+
+Caderno e feedback: JSON de até 100 KB com IDs conhecidos, contagens coerentes e sem execução. Vetores: NPZ sem pickle, checksum e dimensão. Entradas SQL continuam sob authorizer. Downloads opcionais têm revisão/checksum, ficam fora do repositório e não iniciam no app. Geração local não certifica resistência a injeção ou suporte factual.
+
+A tabela de 21 temas foi preservada da revisão anterior e atualizada com evidência local. O endereço solicitado da NotKode respondeu HTTP 404 nesta retomada; seu texto externo não pôde ser reconferido. Autenticação, isolamento de conta, privilégios, limites de hospedagem e políticas HTTP continuam manuais. OSV não cobre engine nativo ou pesos.

@@ -1,8 +1,12 @@
+# Percurso da escola 3.0
+
+As seis trilhas temáticas abaixo continuam para revisão. A sequência de construção agora tem 10 etapas em Minha escola e no [guia](GUIA_ESCOLA.md), cobrindo as 45 aulas e os 14 exercícios. As aulas novas acrescentam estudo com evidência, missões SQL, dados públicos, gap temporal, calibração, monitoramento, semântica, RAG, SCD2 e watermark.
+
 # Sua trilha Lab Bricks
 
 Estude fundamentos primeiro; avance pelas outras trilhas respeitando os pré-requisitos declarados em cada aula. No app, marque conclusões, exporte progresso e use os critérios para revisar aprendizado.
 
-**Plano sugerido:** 54–78 horas de aulas/práticas, mais 14–20 horas para projetos. É planejamento, não garantia de domínio. Se você já conhece Python/SQL, use os critérios para identificar o que pode revisar mais rápido.
+**Plano sugerido:** 57–82 horas de aulas/práticas, mais 6–10 horas de exercícios e 14–20 horas para projetos. É planejamento, não garantia de domínio. Se você já conhece Python/SQL, use os critérios para identificar o que pode revisar mais rápido.
 
 ## 01 · Fundamentos e ambiente
 
@@ -36,7 +40,7 @@ Qualidade, Delta, incrementos e pipelines declarativos. **Ritmo sugerido:** 10�
 
 ## 04 · Machine learning e MLOps
 
-Baselines, validação temporal, decisões e ciclo de modelos. **Ritmo sugerido:** 14–20 horas.
+Baselines, validação temporal, decisões e ciclo de modelos. **Ritmo sugerido:** 16–22 horas.
 
 - [m01-baseline · Comece pelo problema e por uma baseline](../content/aulas/m01-baseline.md) — Previsão de vendas; notebook 04.
 - [m02-temporal · Evite vazamento temporal nas features](../content/aulas/m02-temporal.md) — Previsão de vendas e ML e classificação.
@@ -47,6 +51,7 @@ Baselines, validação temporal, decisões e ciclo de modelos. **Ritmo sugerido:
 - [m06-features-temporais · Recupere a feature que já existia na previsão](../content/aulas/m06-features-temporais.md) — ML e ciclo completo; notebook 11.
 - [m07-selecao-validacao · Escolha modelo e limiar sem consumir o teste](../content/aulas/m07-selecao-validacao.md) — ML e ciclo completo; notebook 11.
 - [m08-contrato-inferencia · Leve o modelo à inferência com contrato](../content/aulas/m08-contrato-inferencia.md) — ML e ciclo completo; notebook 11.
+- [m09-instabilidade-selecao · Meça o quanto a sua escolha de modelo balança](../content/aulas/m09-instabilidade-selecao.md) — Estabilidade da escolha; exercício 06.
 
 ## 05 · IA, LLMs e recuperação
 
@@ -57,6 +62,7 @@ Contexto, evidências, avaliação e revisão humana. **Ritmo sugerido:** 8–12
 - [i03-rag · Planeje um RAG com citações e abstenção](../content/aulas/i03-rag.md) — IA e recuperação; roteiro sem chamadas externas.
 - [i04-avaliacao · Avalie recuperação, resposta e segurança separadamente](../content/aulas/i04-avaliacao.md) — IA e recuperação; benchmark próprio.
 - [i05-valor · Escolha automações pelo valor e pela supervisão](../content/aulas/i05-valor.md) — Projeto 03 e roteiro de decisão.
+- [i06-benchmark-parafraseado · Meça a busca com perguntas de gente de verdade](../content/aulas/i06-benchmark-parafraseado.md) — IA e recuperação; exercício 07.
 
 ## 06 · Governança e operação
 

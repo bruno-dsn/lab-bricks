@@ -75,5 +75,45 @@
     "publisher": "Packt",
     "type": "livro fornecido pelo usuário",
     "use": "Ciclo de ML, features point-in-time, experimentos, contratos e inferência. Práticas próprias; nomenclatura e MLflow atualizados por documentação oficial."
+  },
+  "uci": {
+    "title": "Online Retail",
+    "author": "Daqing Chen",
+    "year": "consulta em 2026-10-08",
+    "url": "https://archive.ics.uci.edu/dataset/352/online+retail",
+    "type": "fonte primária",
+    "use": "Referência para prática original do laboratório; limites e execução declarados."
+  },
+  "sklearn": {
+    "title": "scikit-learn 1.8: seleção temporal e calibração",
+    "author": "scikit-learn",
+    "year": "consulta em 2026-10-08",
+    "url": "https://scikit-learn.org/1.8/modules/calibration.html",
+    "type": "fonte primária",
+    "use": "Referência para prática original do laboratório; limites e execução declarados."
+  },
+  "spark": {
+    "title": "Spark 4.0.1: Structured Streaming",
+    "author": "Apache Spark",
+    "year": "consulta em 2026-10-08",
+    "url": "https://spark.apache.org/docs/4.0.1/streaming/apis-on-dataframes-and-datasets.html",
+    "type": "fonte primária",
+    "use": "Referência para prática original do laboratório; limites e execução declarados."
+  },
+  "semantica": {
+    "title": "paraphrase-multilingual-MiniLM-L12-v2 em ONNX",
+    "author": "Xenova / sentence-transformers",
+    "year": "consulta em 2026-10-08",
+    "url": "https://huggingface.co/Xenova/paraphrase-multilingual-MiniLM-L12-v2",
+    "type": "fonte primária",
+    "use": "Referência para prática original do laboratório; limites e execução declarados."
+  },
+  "llama": {
+    "title": "llama.cpp e Qwen2.5 0.5B Instruct",
+    "author": "ggml-org / Qwen",
+    "year": "consulta em 2026-10-08",
+    "url": "https://github.com/ggml-org/llama.cpp",
+    "type": "fonte primária",
+    "use": "Referência para prática original do laboratório; limites e execução declarados."
   }
 }

@@ -1,0 +1,361 @@
+{
+  "protocolo": {
+    "amostras": 30,
+    "sementes": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25,
+      26,
+      27,
+      28,
+      29
+    ],
+    "entregas": 600,
+    "dados": "sintéticos",
+    "nota": "Ganho e intervalo do gerador logístico, não evidência de população real."
+  },
+  "resumo": {
+    "amostras": 30,
+    "escolhas": {
+      "logistica_C_0.1": 17,
+      "logistica_C_1": 13
+    },
+    "limiar_mediana": 0.15000000000000002,
+    "limiar_min": 0.1,
+    "limiar_max": 0.30000000000000004,
+    "margem_mediana": 22.5,
+    "ganho_medio": 385.0,
+    "ganho_ic95": [
+      336.49583333333334,
+      437.00416666666666
+    ],
+    "ganho_sempre_alertar_medio": 122.83333333333333,
+    "amostras_onde_modelo_perde": 0,
+    "limiar_teorico": 0.14285714285714285
+  },
+  "amostras": [
+    {
+      "amostra": 0,
+      "modelo": "logistica_C_1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 380,
+      "margem_validacao": 5,
+      "custo_teste": 295,
+      "custo_nunca_alertar": 720,
+      "custo_sempre_alertar": 480
+    },
+    {
+      "amostra": 1,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.2,
+      "custo_validacao": 300,
+      "margem_validacao": 40,
+      "custo_teste": 450,
+      "custo_nunca_alertar": 870,
+      "custo_sempre_alertar": 455
+    },
+    {
+      "amostra": 2,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 300,
+      "margem_validacao": 15,
+      "custo_teste": 340,
+      "custo_nunca_alertar": 810,
+      "custo_sempre_alertar": 465
+    },
+    {
+      "amostra": 3,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.1,
+      "custo_validacao": 345,
+      "margem_validacao": 25,
+      "custo_teste": 330,
+      "custo_nunca_alertar": 570,
+      "custo_sempre_alertar": 505
+    },
+    {
+      "amostra": 4,
+      "modelo": "logistica_C_1",
+      "limiar": 0.1,
+      "custo_validacao": 365,
+      "margem_validacao": 5,
+      "custo_teste": 340,
+      "custo_nunca_alertar": 780,
+      "custo_sempre_alertar": 470
+    },
+    {
+      "amostra": 5,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 310,
+      "margem_validacao": 5,
+      "custo_teste": 310,
+      "custo_nunca_alertar": 930,
+      "custo_sempre_alertar": 445
+    },
+    {
+      "amostra": 6,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 275,
+      "margem_validacao": 10,
+      "custo_teste": 320,
+      "custo_nunca_alertar": 750,
+      "custo_sempre_alertar": 475
+    },
+    {
+      "amostra": 7,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.1,
+      "custo_validacao": 345,
+      "margem_validacao": 35,
+      "custo_teste": 360,
+      "custo_nunca_alertar": 840,
+      "custo_sempre_alertar": 460
+    },
+    {
+      "amostra": 8,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.1,
+      "custo_validacao": 290,
+      "margem_validacao": 50,
+      "custo_teste": 275,
+      "custo_nunca_alertar": 690,
+      "custo_sempre_alertar": 485
+    },
+    {
+      "amostra": 9,
+      "modelo": "logistica_C_1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 360,
+      "margem_validacao": 25,
+      "custo_teste": 350,
+      "custo_nunca_alertar": 720,
+      "custo_sempre_alertar": 480
+    },
+    {
+      "amostra": 10,
+      "modelo": "logistica_C_1",
+      "limiar": 0.25,
+      "custo_validacao": 280,
+      "margem_validacao": 30,
+      "custo_teste": 355,
+      "custo_nunca_alertar": 840,
+      "custo_sempre_alertar": 460
+    },
+    {
+      "amostra": 11,
+      "modelo": "logistica_C_1",
+      "limiar": 0.25,
+      "custo_validacao": 290,
+      "margem_validacao": 20,
+      "custo_teste": 320,
+      "custo_nunca_alertar": 690,
+      "custo_sempre_alertar": 485
+    },
+    {
+      "amostra": 12,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 315,
+      "margem_validacao": 60,
+      "custo_teste": 270,
+      "custo_nunca_alertar": 570,
+      "custo_sempre_alertar": 505
+    },
+    {
+      "amostra": 13,
+      "modelo": "logistica_C_1",
+      "limiar": 0.1,
+      "custo_validacao": 350,
+      "margem_validacao": 20,
+      "custo_teste": 345,
+      "custo_nunca_alertar": 690,
+      "custo_sempre_alertar": 485
+    },
+    {
+      "amostra": 14,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 285,
+      "margem_validacao": 15,
+      "custo_teste": 285,
+      "custo_nunca_alertar": 1110,
+      "custo_sempre_alertar": 415
+    },
+    {
+      "amostra": 15,
+      "modelo": "logistica_C_1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 245,
+      "margem_validacao": 5,
+      "custo_teste": 315,
+      "custo_nunca_alertar": 600,
+      "custo_sempre_alertar": 500
+    },
+    {
+      "amostra": 16,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 345,
+      "margem_validacao": 60,
+      "custo_teste": 480,
+      "custo_nunca_alertar": 720,
+      "custo_sempre_alertar": 480
+    },
+    {
+      "amostra": 17,
+      "modelo": "logistica_C_1",
+      "limiar": 0.25,
+      "custo_validacao": 425,
+      "margem_validacao": 10,
+      "custo_teste": 520,
+      "custo_nunca_alertar": 840,
+      "custo_sempre_alertar": 460
+    },
+    {
+      "amostra": 18,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 370,
+      "margem_validacao": 5,
+      "custo_teste": 360,
+      "custo_nunca_alertar": 600,
+      "custo_sempre_alertar": 500
+    },
+    {
+      "amostra": 19,
+      "modelo": "logistica_C_1",
+      "limiar": 0.1,
+      "custo_validacao": 285,
+      "margem_validacao": 55,
+      "custo_teste": 455,
+      "custo_nunca_alertar": 780,
+      "custo_sempre_alertar": 470
+    },
+    {
+      "amostra": 20,
+      "modelo": "logistica_C_1",
+      "limiar": 0.1,
+      "custo_validacao": 330,
+      "margem_validacao": 35,
+      "custo_teste": 395,
+      "custo_nunca_alertar": 480,
+      "custo_sempre_alertar": 520
+    },
+    {
+      "amostra": 21,
+      "modelo": "logistica_C_1",
+      "limiar": 0.2,
+      "custo_validacao": 320,
+      "margem_validacao": 10,
+      "custo_teste": 380,
+      "custo_nunca_alertar": 750,
+      "custo_sempre_alertar": 475
+    },
+    {
+      "amostra": 22,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 240,
+      "margem_validacao": 20,
+      "custo_teste": 275,
+      "custo_nunca_alertar": 720,
+      "custo_sempre_alertar": 480
+    },
+    {
+      "amostra": 23,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 355,
+      "margem_validacao": 30,
+      "custo_teste": 400,
+      "custo_nunca_alertar": 690,
+      "custo_sempre_alertar": 485
+    },
+    {
+      "amostra": 24,
+      "modelo": "logistica_C_1",
+      "limiar": 0.1,
+      "custo_validacao": 245,
+      "margem_validacao": 10,
+      "custo_teste": 300,
+      "custo_nunca_alertar": 660,
+      "custo_sempre_alertar": 490
+    },
+    {
+      "amostra": 25,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.2,
+      "custo_validacao": 280,
+      "margem_validacao": 25,
+      "custo_teste": 395,
+      "custo_nunca_alertar": 990,
+      "custo_sempre_alertar": 435
+    },
+    {
+      "amostra": 26,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.1,
+      "custo_validacao": 345,
+      "margem_validacao": 35,
+      "custo_teste": 285,
+      "custo_nunca_alertar": 600,
+      "custo_sempre_alertar": 500
+    },
+    {
+      "amostra": 27,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.2,
+      "custo_validacao": 175,
+      "margem_validacao": 35,
+      "custo_teste": 460,
+      "custo_nunca_alertar": 690,
+      "custo_sempre_alertar": 485
+    },
+    {
+      "amostra": 28,
+      "modelo": "logistica_C_0.1",
+      "limiar": 0.15000000000000002,
+      "custo_validacao": 330,
+      "margem_validacao": 0,
+      "custo_teste": 360,
+      "custo_nunca_alertar": 690,
+      "custo_sempre_alertar": 485
+    },
+    {
+      "amostra": 29,
+      "modelo": "logistica_C_1",
+      "limiar": 0.30000000000000004,
+      "custo_validacao": 215,
+      "margem_validacao": 25,
+      "custo_teste": 295,
+      "custo_nunca_alertar": 780,
+      "custo_sempre_alertar": 470
+    }
+  ]
+}

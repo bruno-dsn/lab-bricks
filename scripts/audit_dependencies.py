@@ -3,13 +3,14 @@ from pathlib import Path
 import json
 import urllib.request
 import sys
+from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
 
 
 def audit():
     versions = {}
-    for path in [ROOT / "requirements.lock", ROOT / "requirements-spark.txt"]:
+    for path in [ROOT / "requirements.lock", ROOT / "requirements-spark.txt", ROOT / "requirements-semantica.txt", ROOT / "requirements-rag.txt"]:
         for line in path.read_text().splitlines():
             if line.strip() and not line.startswith(("#", "-r")):
                 name, version = line.split("==", 1)
@@ -25,7 +26,9 @@ def audit():
         raise RuntimeError("Resposta incompleta da auditoria.")
     findings = [{"pacote": name, "versao": version, "advisories": [v["id"] for v in result.get("vulns", [])]}
                 for (name, version), result in zip(packages, results) if result.get("vulns")]
-    print(json.dumps({"consultados": len(packages), "achados": findings}, ensure_ascii=False, indent=2))
+    report={"consultado_em_utc":datetime.now(timezone.utc).isoformat(),"fonte":"https://api.osv.dev/v1/querybatch","consultados":len(packages),"pacotes":[{"nome":n,"versao":v} for n,v in packages],"achados":findings,"limite":"Pacotes PyPI; executável nativo e modelos não são cobertos por esta consulta."}
+    (ROOT/'docs/DEPENDENCIAS_OSV.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n')
+    print(json.dumps({"consultados":len(packages),"achados":findings},ensure_ascii=False,indent=2))
     return bool(findings)
 
 

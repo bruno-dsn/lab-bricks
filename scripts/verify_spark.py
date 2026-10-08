@@ -10,6 +10,8 @@ sys.path.insert(0, str(ROOT / "src"))
 from lab.dados import COLUNAS, gerar_vendas
 from lab.pipeline import tratar
 from lab.bi import gerar_comercio, resumo, CONSULTAS
+from lab.retail_real import carregar_amostra, limpar_retail, gold_retail
+import json
 
 
 def verificar():
@@ -25,6 +27,7 @@ def verificar():
                  .config("spark.ui.enabled", "false")
                  .config("spark.driver.host", "127.0.0.1")
                  .config("spark.sql.shuffle.partitions", "2")
+                 .config("spark.sql.session.timeZone", "UTC")
                  .config("spark.sql.execution.arrow.pyspark.enabled", "true")
                  .config("spark.sql.execution.arrow.pyspark.fallback.enabled", "false")
                  .config("spark.sql.warehouse.dir", str(Path(temporary) / "warehouse"))
@@ -80,7 +83,38 @@ def verificar():
             assert counts_bi == {'linhas': expected['linhas'], 'pedidos': expected['pedidos']}
             window_rows = spark.sql(CONSULTAS['Receita acumulada com janela']).collect()
             assert abs(float(window_rows[-1]['acumulada']) - expected['receita_centavos'] / 100) < 1e-6
-            print(f"Spark {spark.version}: 5 cenários validados: 3 de pipeline, JSON e BI com janela. Delta, Unity Catalog e serviços de conta não foram executados.")
+            # Gold público: mesma moeda, mesmo total e tipos inteiros no Spark.
+            silver_real, _, _, counts = limpar_retail(carregar_amostra(ROOT/'data'))
+            gold = gold_retail(silver_real)
+            structure = 'dia STRING, venda_bruta_centavos LONG, estorno_centavos LONG, receita_liquida_centavos LONG, linhas LONG'
+            # Arrow evita o caminho PythonRDD e mantém os tipos explícitos.
+            native_gold = spark.createDataFrame(gold,structure)
+            assert native_gold.agg(F.sum('receita_liquida_centavos')).first()[0] == 5682033
+            assert counts['entrada'] == counts['silver'] + counts['rejeitadas'] + counts['substituidas']
+            # Streaming nativo: um arquivo por trigger, preservando o checkpoint.
+            base_stream = Path(temporary)/'stream';input_dir=base_stream/'input';input_dir.mkdir(parents=True)
+            output_dir=base_stream/'output';checkpoint=base_stream/'checkpoint'
+            stream=(spark.readStream.schema('evento_id STRING, instante TIMESTAMP, valor DOUBLE').json(str(input_dir)).withWatermark('instante','10 minutes').groupBy(F.window('instante','5 minutes')).agg(F.sum('valor').alias('valor'),F.count('*').alias('eventos')))
+            def trigger():
+                query=(stream.writeStream.format('parquet').outputMode('append').option('checkpointLocation',str(checkpoint)).trigger(availableNow=True).start(str(output_dir)))
+                if not query.awaitTermination(120):
+                    query.stop();raise RuntimeError('Streaming local excedeu dois minutos.')
+                if query.exception() is not None:raise RuntimeError(str(query.exception()))
+            def event(key,time,value):return {'evento_id':key,'instante':f'2026-01-01T{time}:00','valor':float(value)}
+            batches=[[event('a','10:02',10),event('b','10:20',20)],
+                     [event('c','10:12',12),event('tardio','10:02',99),event('d','10:30',30)],
+                     [event('e','10:50',50)]]
+            for i,batch in enumerate(batches):
+                (input_dir/f'{i:02d}.json').write_text('\n'.join(json.dumps(row) for row in batch)+'\n')
+                trigger()
+            trigger()
+            before=spark.read.parquet(str(output_dir)).orderBy('window').collect()
+            assert sum(float(row.valor) for row in before)==72.0
+            assert sum(float(row.valor) for row in before if row.window.start.minute==0)==10.0
+            trigger()
+            after=spark.read.parquet(str(output_dir)).orderBy('window').collect()
+            assert before==after,'Replay do checkpoint alterou o resultado'
+            print(f"Spark {spark.version}: 7 cenários validados: pipeline (3), JSON, BI, Gold público e streaming com replay de checkpoint. Delta e conta Databricks não executados.")
         finally:
             spark.stop()
 

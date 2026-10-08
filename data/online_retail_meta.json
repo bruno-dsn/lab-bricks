@@ -1,0 +1,21 @@
+{
+  "dataset": "Online Retail",
+  "autor": "Daqing Chen",
+  "ano": 2015,
+  "doi": "10.24432/C5BW33",
+  "fonte": "https://archive.ics.uci.edu/static/public/352/online+retail.zip",
+  "fonte_sha256": "f5385cbb54bbebf7196389109c6b0621faab0c304e3702548165e71c84aede8b",
+  "licenca": "CC BY 4.0",
+  "licenca_url": "https://creativecommons.org/licenses/by/4.0/",
+  "amostra_sha256": "e9b8b91ded2e05b4adfa6cb226a31957547d8be1beedb21b10b58c5669659940",
+  "linhas": 3000,
+  "moeda": "GBP",
+  "mudancas": [
+    "Primeiras 3.000 linhas de dados, na ordem original",
+    "CustomerID removido",
+    "Cabeçalhos em português",
+    "Datas seriais Excel convertidas para texto sem inventar fuso horário",
+    "Sem defeitos artificiais adicionados"
+  ],
+  "gerado_em": "2026-10-08T00:32:25.506400+00:00"
+}

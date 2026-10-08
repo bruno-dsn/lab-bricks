@@ -13,6 +13,7 @@ sys.path.insert(0, str(ROOT / "src"))
 from lab.dados import gerar_vendas
 from lab.conteudo import carregar
 from export_notebooks import convert
+from lab.benchmark import protocolo, carregar_vetores
 
 SECRET_PATTERNS = [
     re.compile(r"dapi[a-f0-9]{32}"), re.compile(r"sk-[A-Za-z0-9_-]{30,}"),
@@ -80,7 +81,7 @@ def verify():
                     problems.append(f"Saída de execução presente: {path.name}")
                 if not code.startswith("%"):
                     ast.parse(code, filename=path.name)
-    for path in [ROOT / "app.py", *(ROOT / "src").rglob("*.py"), *(ROOT / "scripts").glob("*.py"), *(ROOT / "tests").glob("*.py"), *(ROOT / "pipelines").glob("*.py")]:
+    for path in [ROOT / "app.py", *(ROOT / "src").rglob("*.py"), *(ROOT / "scripts").glob("*.py"), *(ROOT / "tests").glob("*.py"), *(ROOT / "pipelines").glob("*.py"), *(ROOT / "exercicios").rglob("*.py"), *(ROOT / "solucoes").glob("*.py")]:
         ast.parse(path.read_text(), filename=str(path))
     # Cópias nativas precisam permanecer coerentes com a biblioteca local.
     for notebook, original in [("00_configuracao", "dados"), ("04_ml_sem_vazamento", "ml"), ("05_bi_modelagem", "bi"), ("09_classificacao_temporal", "classificacao"), ("10_recuperacao_e_evidencias", "recuperacao"), ("11_ciclo_ml_e_contrato", "ciclo_ml")]:
@@ -89,6 +90,23 @@ def verify():
     with (ROOT / "data/vendas_sinteticas.csv").open(newline="") as f:
         if list(csv.DictReader(f)) != gerar_vendas():
             problems.append("CSV diverge do gerador padrão")
+    # Cópias novas retiram apenas os imports relativos: os módulos já estão na célula.
+    for notebook, originals in [
+        ('11_ciclo_ml_e_contrato', ['rigor_ml']),
+        ('12_dados_publicos_reais', ['retail_real']),
+        ('13_validacao_temporal_calibracao', ['classificacao', 'ciclo_ml', 'rigor_ml']),
+        ('14_cdc_scd2', ['engenharia_avancada']),
+        ('15_streaming_watermark', ['engenharia_avancada']),
+        ('16_rag_evidencias', ['recuperacao', 'rag']),
+    ]:
+        target = ROOT / f'notebooks/{notebook}.py'
+        if not target.exists():
+            problems.append(f'Notebook da escola ausente: {notebook}')
+            continue
+        for original in originals:
+            shared = '\n'.join(line for line in (ROOT / f'src/lab/{original}.py').read_text().splitlines() if not line.startswith('from .')).strip()
+            if shared not in target.read_text():
+                problems.append(f'Cópia compartilhada divergente: {notebook}/{original}')
     config = tomllib.loads((ROOT / ".streamlit/config.toml").read_text())
     if config["client"]["showErrorDetails"] != "none" or not config["server"]["enableCORS"] or not config["server"]["enableXsrfProtection"]:
         problems.append("Configuração de proteção da interface divergente")
@@ -104,6 +122,21 @@ def verify():
         benchmark = json.loads((ROOT / "content/retrieval_benchmark.json").read_text())
         if any(case['expected'] not in ids for case in benchmark):
             problems.append("Benchmark referencia aula inexistente")
+        parafraseado = json.loads((ROOT / "content/retrieval_benchmark_parafraseado.json").read_text())
+        if any(set(case) != {"query", "expected"} or case["expected"] not in ids for case in parafraseado) or len(parafraseado) < 30:
+            problems.append("Benchmark parafraseado inválido ou com menos de 30 casos")
+        fora = json.loads((ROOT / "content/retrieval_fora_do_escopo.json").read_text())
+        if not fora or not all(isinstance(item, str) and item for item in fora):
+            problems.append("Perguntas fora do escopo ausentes ou inválidas")
+        starters = {p.stem for p in (ROOT / "exercicios").glob("ex*.py")}
+        if starters != {p.stem for p in (ROOT / "solucoes").glob("ex*.py")}:
+            problems.append("Exercícios e soluções não têm os mesmos arquivos")
+        stages = json.loads((ROOT / 'content/school.json').read_text())['etapas']
+        covered = [a for stage in stages for a in stage['aulas']]
+        if len(covered) != len(set(covered)) or set(covered) != ids or {e for stage in stages for e in stage['exercicios']} != starters:
+            problems.append('Percurso não cobre as aulas e exercícios exatamente.')
+        protocolo(ROOT / 'content')
+        carregar_vetores(ROOT / 'content')
     except (ValueError, KeyError) as error:
         problems.append(f"Catálogo inválido: {error}")
     verify_history(problems)
