@@ -1,9 +1,17 @@
 # Lab Bricks - escola prática de dados e Databricks
-![Lab Bricks](assets/capa.svg)
+![Lab Bricks](assets/portfolio-cover.svg)
 
 **Edição 3.0.** Um percurso em português para ler, escrever código, errar, investigar e apresentar evidências. O projeto começou no e-book de Databricks e ganhou aulas próprias, exercícios corrigidos e casos de engenharia, BI, ML e IA.
 
 **Comece pela página Minha escola.** Há 45 aulas em seis trilhas, organizadas em 10 etapas de estudo, 14 exercícios com 64 verificações, 63 questões, três missões SQL, três projetos guiados, 23 páginas no app e 17 notebooks em duas representações. Marcar uma aula como lida não demonstra domínio: produza uma solução, explique um erro e guarde seu resultado.
+
+[Início rápido](#rodar-no-vs-code) · [Guia da escola](docs/GUIA_ESCOLA.md) · [Trilha](docs/TRILHA.md) · [Execução no Databricks](docs/REGISTRO_EXECUCAO_DATABRICKS.md)
+
+## Escola e laboratórios
+
+![Captura real da página inicial](assets/interface-desktop.png)
+
+A página inicial oferece acesso direto à escola, ao pipeline e à biblioteca. O menu completo dos laboratórios fica em uma seção expansível; o progresso continua disponível na lateral.
 
 ## Rodar no VS Code
 

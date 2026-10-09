@@ -29,7 +29,43 @@ h1 { letter-spacing: -0.045em; }
 [data-testid="stMetric"] { background: #FFFFFF; border: 1px solid #EEEDE9;
  border-radius: 12px; padding: 18px; border-top: 3px solid #FF3621; }
 [data-testid="stSidebar"] { border-right: 1px solid #EEEDE9; }
-</style>''', unsafe_allow_html=True)  # Somente CSS constante; nenhuma entrada interpolada.
+
+/* Interface revisada: contraste, hierarquia e navegação responsiva. */
+:root { --ui-accent: #FF3621; --ui-surface: #FFFFFF; --ui-ink: #172033; --ui-muted: #56657A; --ui-line: #DEE5EE; }
+.stApp { background: #F5F7FA !important; }
+.stApp .block-container { max-width: 1400px; padding-top: 1.2rem; padding-bottom: 3.5rem; }
+[data-testid="stSidebar"] { background: #FFFFFF !important; border-right: 1px solid #DEE5EE !important; }
+.workspace-bar { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 8px; color: #56657A; padding: 2px 0 17px; margin-bottom: 6px; border-bottom: 1px solid #DEE5EE; font-size: .78rem; }
+.workspace-bar strong { color: #172033; font-weight: 650; }
+.workspace-source { border: 1px solid #DEE5EE; border-radius: 6px; padding: 4px 9px; background: #FFFFFF; color: #56657A; font-size: .72rem; }
+.stApp .hero { border: 1px solid #DEE5EE !important; border-left: 4px solid #FF3621 !important; border-radius: 12px !important; padding: 24px 28px !important; background: #132D43 !important; box-shadow: none !important; margin-bottom: 20px !important; }
+.stApp .hero h1 { color: #F7FAFF; font-size: clamp(1.65rem, 2.4vw, 2.3rem) !important; line-height: 1.2 !important; letter-spacing: -.035em; max-width: 1000px; margin: 6px 0 10px !important; }
+.stApp .hero p { color: #C5D1E0 !important; font-size: .96rem !important; line-height: 1.65 !important; max-width: 940px !important; }
+.stApp .hero .eyebrow, .stApp .hero-kicker { color: #A5D7FF !important; font-size: .69rem !important; letter-spacing: .11em !important; }
+.stApp h1 { font-size: clamp(1.7rem, 2.5vw, 2.4rem); line-height: 1.2; letter-spacing: -.035em; }
+.stApp h2 { font-size: 1.4rem; letter-spacing: -.02em; }
+.stApp h3 { font-size: 1.13rem; letter-spacing: -.015em; }
+[data-testid="stMetric"] { background: #FFFFFF !important; border: 1px solid #DEE5EE !important; border-top: 2px solid #DEE5EE !important; border-radius: 10px !important; padding: 18px 20px !important; box-shadow: none !important; min-height: 112px; }
+[data-testid="stMetricLabel"] { color: #56657A !important; font-size: .81rem !important; }
+[data-testid="stMetricValue"] { color: #172033 !important; font-size: 1.75rem !important; font-weight: 700 !important; font-variant-numeric: tabular-nums; }
+[data-testid="stDataFrame"] { border: 1px solid #DEE5EE; border-radius: 10px; overflow: hidden; }
+[data-testid="stPlotlyChart"], [data-testid="stVegaLiteChart"] { border: 1px solid #DEE5EE; border-radius: 12px; padding: 10px; background: #FFFFFF; }
+.stTabs [data-baseweb="tab-list"] { gap: 8px !important; border-bottom: 1px solid #DEE5EE; overflow-x: auto; padding-bottom: 3px; }
+.stTabs [data-baseweb="tab"] { background: transparent !important; padding: 9px 12px !important; border-radius: 6px !important; font-size: .87rem; white-space: nowrap; }
+.stTabs [aria-selected="true"] { color: #FF3621 !important; border: none !important; background: #FFFFFF !important; font-weight: 650; }
+.stButton > button, .stDownloadButton > button { border-radius: 7px; min-height: 42px; font-weight: 600; }
+.stApp button:focus-visible, .stApp input:focus-visible, .stApp textarea:focus-visible, .stApp a:focus-visible { outline: 3px solid #FF3621; outline-offset: 3px; }
+.stApp .lesson-card, .stApp .schema-card, .stApp .clause-card, .stApp .step { box-shadow: none !important; border-radius: 10px !important; }
+@media (max-width: 900px) {
+  .stApp .block-container { padding-left: 1rem; padding-right: 1rem; }
+  .stApp .hero { padding: 20px !important; }
+  [data-testid="stHorizontalBlock"] { flex-wrap: wrap; }
+  [data-testid="stHorizontalBlock"] > [data-testid="stColumn"] { min-width: min(240px, 100%); flex: 1 1 240px; }
+  [data-testid="stMetricValue"] { font-size: 1.5rem !important; }
+}
+@media (prefers-reduced-motion: reduce) { .stApp *, .stApp *::before, .stApp *::after { scroll-behavior: auto !important; transition: none !important; animation: none !important; } }
+</style>
+<div class="workspace-bar"><strong>Escola · Dados, engenharia e IA</strong><span class="workspace-source">Aprenda · Pratique · Registre</span></div>''', unsafe_allow_html=True)  # Somente CSS constante; nenhuma entrada interpolada.
 
 lessons, tracks, sources = carregar(ROOT / 'content')
 by_id = {a.id: a for a in lessons}
@@ -41,7 +77,8 @@ pages += PAGINAS
 with st.sidebar:
     st.image(str(ROOT / 'assets/logo.svg'), width=200)
     st.caption('ESTUDE · EXPERIMENTE · EXPLIQUE')
-    page = st.radio('Sua próxima experiência', pages, key='page')
+    with st.expander('Explorar aulas e laboratórios', expanded=st.session_state.get('page', 'Comece por aqui') != 'Comece por aqui'):
+        page = st.radio('Sua próxima experiência', pages, key='page')
     st.divider()
     st.progress(len(completed & by_id.keys()) / max(len(lessons), 1), text=f'{len(completed & by_id.keys())}/{len(lessons)} aulas marcadas')
     n, seed, dirty = 720, 42, True
@@ -91,20 +128,28 @@ def sql_editor(tables, presets, namespace):
         except ConsultaInvalida as error:
             st.warning(str(error))
 
+def abrir_pagina(nome):
+    st.session_state.page = nome
+
+
 if page == 'Comece por aqui':
-    st.image(str(ROOT / 'assets/capa.svg'), width='stretch')
-    st.title('Seu laboratório de dados, do fundamento à evidência.')
+    st.markdown('''<section class="hero"><div class="eyebrow">LAB BRICKS · ESCOLA PRÁTICA</div><h1>Construa. Teste. Entenda seus dados.</h1><p>Um espaço para aprender engenharia de dados e IA com experimentos, exercícios e evidências do que você construiu.</p></section>''', unsafe_allow_html=True)
     st.write('Aprenda com aulas em português, dois casos de comércio, previsões, classificação e busca de evidências. Mude parâmetros, observe o resultado e explique suas decisões.')
     cols = st.columns(4)
     for col, label, value in zip(cols, ['Trilhas', 'Aulas próprias', 'Projetos', 'Notebooks nativos'], [len(tracks), len(lessons), 3, len(list((ROOT / 'notebooks').glob('*.py')))]):
         col.metric(label, value)
-    st.info('Abra Minha escola para seguir dez etapas, escrever código, testar e guardar suas reflexões.')
+    acoes = st.columns(3)
+    acoes[0].button('Começar minha escola', type='primary', on_click=abrir_pagina, args=('Minha escola',), width='stretch')
+    acoes[1].button('Explorar o pipeline', on_click=abrir_pagina, args=('Pipeline e qualidade',), width='stretch')
+    acoes[2].button('Abrir biblioteca', on_click=abrir_pagina, args=('Biblioteca de aulas',), width='stretch')
+    st.caption('Comece pela escola prática: dez etapas com código, validação e um caderno de reflexões.')
     st.subheader('Um caminho que cabe no seu ritmo')
     for row in (list(tracks.items())[:3], list(tracks.items())[3:]):
         for col, (key, item) in zip(st.columns(3), row):
             with col:
-                st.markdown(f"### {item['title']}\n{item['description']}")
-                st.caption(f"{item['hours']} sugeridas · ajuste ao seu ritmo")
+                with st.container(border=True):
+                    st.markdown(f"### {item['title']}\n{item['description']}")
+                    st.caption(f"{item['hours']} sugeridas · ajuste ao seu ritmo")
     st.info('Primeiro passo: abra Trilha e progresso, comece em f01 e depois experimente Pipeline e qualidade. As horas são estimativas de planejamento, sem promessa de domínio ou aprovação em certificação.')
     st.subheader('Dois ambientes, evidências distintas')
     table(pd.DataFrame([
